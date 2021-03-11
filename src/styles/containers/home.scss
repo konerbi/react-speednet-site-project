@@ -1,0 +1,105 @@
+.header-intro {
+  height: 100vh;
+}
+
+.header-intro, .header-intro-secondary {
+  background-color: #353535;
+}
+
+.header-intro, .header-intro-optional, .header-intro-secondary {
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.header-intro-secondary:before, .header-intro:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  background: rgba(0,0,0,.3);
+  z-index: 1;
+}
+
+.bg-1,.bg-2,.bg-3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.btn-scroll-more {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  padding-top: 50px;
+  font-family: Volte-Semibold;
+  font-size: 21px;
+  line-height: 1.2;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  z-index: 20;
+
+  a {
+    text-decoration: none;
+  }
+}
+.btn-scroll-more:before {
+  content: '\e900';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: -19px;
+  width: 38px;
+  height: 38px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: no-repeat center center;
+  font-family: speednet;
+  font-size: 24px;
+  line-height: 1;
+  -webkit-animation: scrollArrow 1.5s infinite linear;
+  animation: scrollArrow 1.5s infinite linear;
+}
+
+@media screen and (min-width: 1280px) {
+  .btn-scroll-more {
+    bottom: 70px;
+    font-size: 27px;
+  }
+}
