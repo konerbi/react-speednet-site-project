@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Home = () => {
 	function goToByScroll(elementId, shouldBeExecuted) {
@@ -8,7 +9,7 @@ const Home = () => {
 
 	return (
     <div>
-      <header id="home-header-intro" className="header-intro background-2">
+      <header id="home-header-intro" className="header-intro header-background">
         <div className="container">
           <h1>
             Tworzymy <span id="typed">aplikacje web</span>
@@ -19,21 +20,6 @@ const Home = () => {
             rozwiązaniach webowych oraz mobilnych
           </p>
         </div>
-        <img
-          src="../assets/images/bg/bg_section_top_home_0.jpg"
-          alt=""
-          className="bg-1"
-        />
-        <img
-          src="../assets/images/bg/bg_section_top_home_web_apps.jpg"
-          alt=""
-          className="bg-2"
-        />
-        <img
-          src="../assets/images/bg/bg_section_top_home_teams.jpg"
-          alt=""
-          className="bg-3"
-        />
         <a
           title="Poznaj nas"
           className="btn-scroll-more" onClick={() => goToByScroll('about-us', true)}
@@ -127,7 +113,7 @@ const Home = () => {
 					    </div>
 				    </div>
 				    <div className="button-wrapper">
-					    <a href="https://speednet.pl/o-nas/" title="Zobacz więcej" className="btn-primary">Zobacz więcej</a>
+					    <Link to="/o-nas" title="Zobacz więcej" className="btn-primary">Zobacz więcej</Link>
 				    </div>
 			    </div>
 		    </div>

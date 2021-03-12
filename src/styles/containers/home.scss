@@ -1,7 +1,3 @@
-.header-intro {
-  height: 100vh;
-}
-
 .header-intro, .header-intro-secondary {
   background-color: #353535;
 }
@@ -20,8 +16,10 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-top: 80px;
-  padding-bottom: 80px;
+}
+
+.header-intro {
+  height: 100vh;
 }
 
 .header-intro-secondary:before, .header-intro:before {
@@ -36,22 +34,24 @@
   z-index: 1;
 }
 
-.bg-1,.bg-2,.bg-3 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
+.header-background {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 0;
-  transition: opacity 1s ease;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: animateSectionBackground infinite 38s ease;
+}
+@keyframes animateSectionBackground {
+  00%, 35% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_0.jpg); }
+  37%, 73% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_web_apps.jpg); }
+  75%, 98% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_teams.jpg); }
+  100%, 100% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_0.jpg); }
 }
 
 .btn-scroll-more {
+  cursor: pointer;
   position: absolute;
   bottom: 35px;
   left: 50%;
@@ -95,6 +95,20 @@
   line-height: 1;
   -webkit-animation: scrollArrow 1.5s infinite linear;
   animation: scrollArrow 1.5s infinite linear;
+}
+@keyframes scrollArrow {
+  0%,100% {
+    -webkit-transform:translateY(0);
+    transform:translateY(0);
+  }
+  25% {
+    -webkit-transform:translateY(5px);
+    transform:translateY(5px);
+  }
+  75% {
+    -webkit-transform:translateY(-5px);
+    transform:translateY(-5px);
+  }
 }
 
 @media screen and (min-width: 1280px) {

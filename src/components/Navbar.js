@@ -1,11 +1,29 @@
-import React from "react";
-import { Link, NavLink, withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import LanguageToggle from "./LanguageToggle";
 
-const Navbar = (props) => {
+const Navbar = () => {
+  const [isSticky, setCondition] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    console.log("position=" + position);
+    console.log("window.scrollY=" + window.scrollY);
+    position > 100 ? setCondition(true) : setCondition(false);
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="navigation">
+    <div className={`navigation ${isSticky ? "sticky" : ""}`}>
       <div className="navbar">
         <Link to="/" className="logo" title="Speednet Sp z o.o.">
           <svg
@@ -104,7 +122,5 @@ const Navbar = (props) => {
     </div>
   );
 };
-
-Navbar.propTypes = {};
 
 export default Navbar;
