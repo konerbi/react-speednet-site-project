@@ -1,10 +1,50 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 const Home = () => {
+	const [headerCurrentText, setHeaderCurrentText] = useState('');
+	let currentHeaderIndex = 0;
+	let currentHeaderTextEndPosition = 0;
+	const headerTexts = [
+		'oprogramowanie',
+		'aplikacje mobilne',
+		'aplikacje webowe',
+		'dedykowane zespoły'
+	];
+
 	function goToByScroll(elementId, shouldBeExecuted) {
-		const scrollDiv = document.getElementById(elementId).offsetTop;
+		const scrollDiv = document.getElementById(elementId).offsetTop - 60;
 		window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
+	}
+
+	useEffect( () => {
+		changeText(true);
+
+		return () => {
+			clearTimeout();
+		};
+	}, []);
+
+	function changeText(increaseText) {
+		let text = headerCurrentText;
+		currentHeaderTextEndPosition = increaseText ? currentHeaderTextEndPosition + 1 : currentHeaderTextEndPosition - 1;
+		text = headerTexts[currentHeaderIndex].slice(0, currentHeaderTextEndPosition);
+		setHeaderCurrentText(text);
+		if (increaseText && text.length === headerTexts[currentHeaderIndex].length) {
+			setTimeout(wait, 4000, false);
+		} else {
+			if (!increaseText && text.length === 0) {
+				currentHeaderIndex = currentHeaderIndex < headerTexts.length - 1 ? currentHeaderIndex + 1 : 0;
+				currentHeaderTextEndPosition = 0;
+				setTimeout(wait, 150, true);
+			} else {
+				setTimeout(wait, increaseText ? 150 : 75, increaseText);
+			}
+		}
+	}
+	function wait(increaseText) {
+		clearTimeout();
+		changeText(increaseText);
 	}
 
 	return (
@@ -12,7 +52,7 @@ const Home = () => {
       <header id="home-header-intro" className="header-intro header-background">
         <div className="container">
           <h1>
-            Tworzymy <span id="typed">aplikacje web</span>
+            Tworzymy <span id="typed">{headerCurrentText}</span>
             <span className="typed-cursor">|</span>
           </h1>
           <p>

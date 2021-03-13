@@ -20,6 +20,30 @@
 
 .header-intro {
   height: 100vh;
+
+  h1 {
+    font-family: "Volte Semibold", sans-serif;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 60px;
+  }
+
+  p {
+    font-size: 30px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 940px;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+    padding: 0;
+    border: 0;
+    font-family: "Volte Regular",sans-serif;
+    vertical-align: baseline;
+    outline: 0;
+  }
 }
 
 .header-intro-secondary:before, .header-intro:before {
@@ -41,12 +65,12 @@
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  animation: animateSectionBackground infinite 38s ease;
+  animation: animateSectionBackground infinite 31s ease;
 }
 @keyframes animateSectionBackground {
-  00%, 35% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_0.jpg); }
-  37%, 73% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_web_apps.jpg); }
-  75%, 98% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_teams.jpg); }
+  00%, 48% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_0.jpg); }
+  50%, 74% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_web_apps.jpg); }
+  76%, 98% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_teams.jpg); }
   100%, 100% { opacity: 1; background-image: url(/assets/images/bg/bg_section_top_home_0.jpg); }
 }
 
@@ -115,5 +139,30 @@
   .btn-scroll-more {
     bottom: 70px;
     font-size: 27px;
+  }
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 1280px;
+  z-index: 1;
+}
+
+.typed-cursor {
+  -webkit-animation: blinkTypedCursor .8s infinite linear;
+  animation: blinkTypedCursor .8s infinite linear;
+}
+@keyframes blinkTypedCursor {
+  0% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
