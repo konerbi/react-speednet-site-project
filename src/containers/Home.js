@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 const Home = () => {
+	const [currentBackground, setCurrentBackground] = useState('background-1');
 	const [headerCurrentText, setHeaderCurrentText] = useState('');
 	let currentHeaderIndex = 0;
 	let currentHeaderTextEndPosition = 0;
@@ -10,6 +11,12 @@ const Home = () => {
 		'aplikacje mobilne',
 		'aplikacje webowe',
 		'dedykowane zespoły'
+	];
+	const backgroundClassNames = [
+		'background-1',
+		'background-1',
+		'background-2',
+		'background-3'
 	];
 
 	function goToByScroll(elementId, shouldBeExecuted) {
@@ -41,6 +48,7 @@ const Home = () => {
 			if (!increaseText && text.length === 0) {
 				currentHeaderIndex = currentHeaderIndex < headerTexts.length - 1 ? currentHeaderIndex + 1 : 0;
 				currentHeaderTextEndPosition = 0;
+				setCurrentBackground(backgroundClassNames[currentHeaderIndex]);
 				setTimeout(wait, timeoutIncrease, true);
 			} else {
 				setTimeout(wait, increaseText ? timeoutIncrease : timeoutDecrease, increaseText);
@@ -54,7 +62,7 @@ const Home = () => {
 
 	return (
     <div>
-      <header id="home-header-intro" className="header-intro header-background">
+      <header id="home-header-intro" className={`header-intro ${currentBackground}`}>
         <div className="container">
           <h1>
             Tworzymy <span id="typed">{headerCurrentText}</span>
@@ -65,12 +73,16 @@ const Home = () => {
             rozwiązaniach webowych oraz mobilnych
           </p>
         </div>
-        <a
+	      <img src="src/assets/images/bg/bg_section_top_home_teams.jpg" className="bg-3" />
+	      <img src="src/assets/images/bg/bg_section_top_home_web_apps.jpg" className="bg-2" />
+	      <img src="src/assets/images/bg/bg_section_top_home_0.jpg" className="bg-1" />
+
+        <div
           title="Poznaj nas"
           className="btn-scroll-more" onClick={() => goToByScroll('about-us', true)}
         >
           Poznaj nas
-        </a>
+        </div>
       </header>
 
 	    <section id="about-us" className="section">
