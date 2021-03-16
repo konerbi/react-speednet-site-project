@@ -1,19 +1,19 @@
-const path = require("path");
-const HWP = require("html-webpack-plugin");
+const path = require('path');
+const HWP = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, "/src/index.js"),
+  entry: path.join(__dirname, '/src/index.js'),
   output: {
-    filename: "build.js",
-    path: path.join(__dirname, "/dist"),
+    filename: 'build.js',
+    path: path.join(__dirname, '/dist'),
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
@@ -68,7 +68,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new HWP({ template: path.join(__dirname, "/src/index.html") }),
+    new HWP({ template: path.join(__dirname, '/src/index.html') }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
