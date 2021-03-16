@@ -1,3 +1,5 @@
+@import '../core';
+
 .navigation {
   max-height: 102.5px;
   position: fixed;
@@ -21,7 +23,7 @@
   box-sizing: border-box;
 
   .logo path {
-    fill: #fff;
+    fill: $color-font-primary;
     transition: fill .2s ease;
   }
 }
@@ -69,7 +71,7 @@
           font-size: 21px;
           line-height: 26px;
           letter-spacing: .8px;
-          color: #fff;
+          color: $color-font-primary;
           text-align: center;
           text-decoration: none;
           text-transform: uppercase;
@@ -80,7 +82,7 @@
           }
         }
         .link-special-2 {
-          border: 1px solid #fff;
+          border: 1px solid $color-font-primary;
           padding: 5px 15px 2px 15px;
         }
       }
@@ -92,21 +94,21 @@
   padding: 20px 0;
   max-height: 60px;
   .link {
-    color: #353535 !important;
+    color: $color-font-secondary !important;
     font-size: 16px !important;
   }
   .link-special-2 {
-    border: 1px solid #353535 !important;
+    border: 1px solid $color-font-secondary !important;
   }
   .logo svg {
     width: 160px;
   }
   path {
-    fill: #353535 !important;
+    fill: $color-font-secondary !important;
   }
 
 }
 .sticky:not(.opened-menu) {
-  background-color: #fff;
+  background-color: $color-background-primary;
   border-bottom-color: #d9d9d9;
 }

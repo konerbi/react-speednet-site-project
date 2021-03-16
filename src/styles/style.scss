@@ -1,3 +1,130 @@
 @import 'components/navbar';
-
 @import 'containers/home';
+
+@font-face {
+  font-family: 'speednet';
+  font-style: normal;
+  font-weight: normal;
+  src: local('speednet'), url('../assets/fonts/speednet.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Volte Regular Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Regular Italic'), url('../assets/fonts/Volte Regular Italic.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Volte Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Regular'), url('../assets/fonts/Volte.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Volte Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Light Italic'), url('../assets/fonts/Volte Light Italic.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Volte Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Light'), url('../assets/fonts/Volte Light.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Volte Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Medium Italic'), url('../assets/fonts/Volte Medium Italic.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Volte Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Medium'), url('../assets/fonts/Volte Medium.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Volte Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Semibold Italic'), url('../assets/fonts/Volte Semibold Italic.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Volte-Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Semibold'), url('../assets/fonts/Volte Semibold.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Volte Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Bold Italic'), url('../assets/fonts/Volte Bold Italic.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Volte Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Volte Bold'), url('../assets/fonts/Volte Bold.woff') format('woff');
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  h1 {
+    font-family: Volte-Semibold, sans-serif;
+    font-size: 60px;
+  }
+  h2 {
+    font-family: "Volte Regular", sans-serif;
+    font-size: 48px;
+  }
+  h3 {
+    font-family: "Volte Regular", sans-serif;
+    font-size: 36px;
+  }
+  p {
+    font-family: "Volte Regular", sans-serif;
+    font-size: 30px;
+  }
+}
+
+.row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  //-webkit-justify-content: flex-start;
+  //-ms-flex-pack: start;
+  justify-content: flex-start;
+  //-webkit-align-content: flex-start;
+  align-content: flex-start;
+  //-webkit-align-items: stretch;
+  //-ms-flex-align: stretch;
+  align-items: stretch;
+  //-webkit-flex-wrap: wrap;
+  //-ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}

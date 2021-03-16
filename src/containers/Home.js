@@ -29,16 +29,21 @@ const Home = () => {
 		let text = headerCurrentText;
 		currentHeaderTextEndPosition = increaseText ? currentHeaderTextEndPosition + 1 : currentHeaderTextEndPosition - 1;
 		text = headerTexts[currentHeaderIndex].slice(0, currentHeaderTextEndPosition);
+
 		setHeaderCurrentText(text);
+
+		let timeoutIncrease = 2000 / headerTexts[currentHeaderIndex].length;
+		let timeoutDecrease = 500 / headerTexts[currentHeaderIndex].length;
+
 		if (increaseText && text.length === headerTexts[currentHeaderIndex].length) {
 			setTimeout(wait, 4000, false);
 		} else {
 			if (!increaseText && text.length === 0) {
 				currentHeaderIndex = currentHeaderIndex < headerTexts.length - 1 ? currentHeaderIndex + 1 : 0;
 				currentHeaderTextEndPosition = 0;
-				setTimeout(wait, 150, true);
+				setTimeout(wait, timeoutIncrease, true);
 			} else {
-				setTimeout(wait, increaseText ? 150 : 75, increaseText);
+				setTimeout(wait, increaseText ? timeoutIncrease : timeoutDecrease, increaseText);
 			}
 		}
 	}
@@ -81,7 +86,7 @@ const Home = () => {
 							    <div className="tile-project">
 								    <h3>Dedykowane aplikacje webowe</h3>
 								    <figure>
-									    <img src="../assets/images/uploads/custom-web-apps.svg"
+									    <img src='src/assets/images/uploads/custom-web-apps.svg'
 									         alt="Dedykowane aplikacje webowe" />
 								    </figure>
 								    <p>Tworzymy rozwiązania webowe, które pomagają zoptymalizować Twoją ofertę i usprawnić
@@ -92,7 +97,7 @@ const Home = () => {
 							    <div className="tile-project">
 								    <h3>Dedykowane aplikacje mobilne</h3>
 								    <figure>
-									    <img src="../assets/images/uploads/custom-mobile-apps.svg"
+									    <img src="src/assets/images/uploads/custom-mobile-apps.svg"
 									         alt="Dedykowane aplikacje mobilne" />
 								    </figure>
 								    <p>Nowoczesna technologia działa na wielu urządzeniach. Wspieramy firmy, tak by ze swoją ofertą
@@ -103,7 +108,7 @@ const Home = () => {
 							    <div className="tile-project">
 								    <h3>Team Leasing</h3>
 								    <figure>
-									    <img src="../assets/images/uploads/team-leasing.svg" alt="Team Leasing" />
+									    <img src="src/assets/images/uploads/team-leasing.svg" alt="Team Leasing" />
 								    </figure>
 								    <p>Oferujemy dedykowane zespoły rozwojowe. Dopasowujemy skład i&nbsp;liczebność zespołu
 									    w&nbsp;zależności od potrzeb klienta.</p>
@@ -117,21 +122,21 @@ const Home = () => {
 				    <div className="tile-number-row">
 					    <div className="tile-number hide-onload">
 						    <figure>
-							    <img src="../assets/images/uploads/calendar.svg" alt="Kalendarz" />
+							    <img src="src/assets/images/uploads/calendar.svg" alt="Kalendarz" />
 						    </figure>
 						    <h3>20+</h3>
 						    <p>Lat na rynku</p>
 					    </div>
 					    <div className="tile-number hide-onload">
 						    <figure>
-							    <img src="../assets/images/uploads/clock.svg" alt="Czas" />
+							    <img src="src/assets/images/uploads/clock.svg" alt="Czas" />
 						    </figure>
 						    <h3>91%</h3>
 						    <p>Projektów oddanych na czas i w budżecie</p>
 					    </div>
 					    <div className="tile-number hide-onload">
 						    <figure>
-							    <img src="../assets/images/uploads/software-engineer.svg"
+							    <img src="src/assets/images/uploads/software-engineer.svg"
 							         alt="Software developer" />
 						    </figure>
 						    <h3>130+</h3>
@@ -139,14 +144,14 @@ const Home = () => {
 					    </div>
 					    <div className="tile-number hide-onload">
 						    <figure>
-							    <img src="../assets/images/uploads/senior-developer.svg" alt="Senior developer" />
+							    <img src="src/assets/images/uploads/senior-developer.svg" alt="Senior developer" />
 						    </figure>
 						    <h3>69%</h3>
 						    <p>Programistów z długoletnim doświadczeniem</p>
 					    </div>
 					    <div className="tile-number hide-onload">
 						    <figure>
-							    <img src="../assets/images/uploads/globe.svg" alt="Globus" />
+							    <img src="src/assets/images/uploads/globe.svg" alt="Globus" />
 						    </figure>
 						    <h3>14</h3>
 						    <p>Klienci z 14 krajów</p>

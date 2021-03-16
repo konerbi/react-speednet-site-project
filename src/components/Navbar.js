@@ -8,8 +8,6 @@ const Navbar = () => {
 
   const handleScroll = () => {
     const position = window.pageYOffset;
-    console.log("position=" + position);
-    console.log("window.scrollY=" + window.scrollY);
     position > 100 ? setCondition(true) : setCondition(false);
     setScrollPosition(position);
   };
