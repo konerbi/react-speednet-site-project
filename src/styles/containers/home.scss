@@ -365,6 +365,22 @@
     }
   }
 
+  [class^=col-]:nth-child(1) .tile-project.hide-onload {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  [class^=col-]:nth-child(2) .tile-project.hide-onload {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  [class^=col-]:nth-child(3) .tile-project.hide-onload {
+    -webkit-transform: translateY(150px);
+    transform: translateY(150px);
+    opacity: 0;
+  }
+
   .tile-number {
     max-width: 20%;
 
@@ -372,6 +388,32 @@
       margin-bottom: 30px;
       font-size: 48px;
     }
+  }
+
+  .tile-number.hide-onload:nth-child(1) {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  .tile-number.hide-onload:nth-child(2) {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  .tile-number.hide-onload:nth-child(3) {
+    -webkit-transform: translateY(150px);
+    transform: translateY(150px);
+    opacity: 0;
+  }
+  .tile-number.hide-onload:nth-child(4) {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  .tile-number.hide-onload:nth-child(5) {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
   }
 
   .btn-primary {

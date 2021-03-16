@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 const Home = () => {
+	const [isAboutUsOutsideViewport, setIsAboutUsOutsideViewport] = useState(true);
+	const [isWhyUsOutsideViewport, setIsWhyUsOutsideViewport] = useState(true);
 	const [currentBackground, setCurrentBackground] = useState('background-1');
 	const [headerCurrentText, setHeaderCurrentText] = useState('');
 	let currentHeaderIndex = 0;
@@ -19,16 +21,32 @@ const Home = () => {
 		'background-3'
 	];
 
+	const handleScroll = () => {
+		const position = window.pageYOffset;
+		console.log('position=' + position);
+		if (position > 500) {
+			setIsAboutUsOutsideViewport(false);
+		}
+		if (position > 1200) {
+			setIsWhyUsOutsideViewport(false);
+		}
+		// if (position > 1300) {
+		// 	setIsAboutUsOutsideViewport(false);
+		// }
+	};
+
 	function goToByScroll(elementId, shouldBeExecuted) {
 		const scrollDiv = document.getElementById(elementId).offsetTop - 60;
 		window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
 	}
 
 	useEffect( () => {
+		window.addEventListener("scroll", handleScroll, { passive: true });
 		changeText(true);
 
 		return () => {
 			clearTimeout();
+			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
 
@@ -95,7 +113,7 @@ const Home = () => {
 				    <div className="tile-project-row">
 					    <div className="row">
 						    <div className="col-md-4">
-							    <div className="tile-project">
+							    <div className={`tile-project ${isAboutUsOutsideViewport ? 'hide-onload' : ''}`}>
 								    <h3>Dedykowane aplikacje webowe</h3>
 								    <figure>
 									    <img src='src/assets/images/uploads/custom-web-apps.svg'
@@ -106,7 +124,7 @@ const Home = () => {
 							    </div>
 						    </div>
 						    <div className="col-md-4">
-							    <div className="tile-project">
+							    <div className={`tile-project ${isAboutUsOutsideViewport ? 'hide-onload' : ''}`}>
 								    <h3>Dedykowane aplikacje mobilne</h3>
 								    <figure>
 									    <img src="src/assets/images/uploads/custom-mobile-apps.svg"
@@ -117,7 +135,7 @@ const Home = () => {
 							    </div>
 						    </div>
 						    <div className="col-md-4">
-							    <div className="tile-project">
+							    <div className={`tile-project ${isAboutUsOutsideViewport ? 'hide-onload' : ''}`}>
 								    <h3>Team Leasing</h3>
 								    <figure>
 									    <img src="src/assets/images/uploads/team-leasing.svg" alt="Team Leasing" />
@@ -132,21 +150,21 @@ const Home = () => {
 			    <div>
 				    <h2>Dlaczego my</h2>
 				    <div className="tile-number-row">
-					    <div className="tile-number hide-onload">
+					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
 						    <figure>
 							    <img src="src/assets/images/uploads/calendar.svg" alt="Kalendarz" />
 						    </figure>
 						    <h3>20+</h3>
 						    <p>Lat na rynku</p>
 					    </div>
-					    <div className="tile-number hide-onload">
+					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
 						    <figure>
 							    <img src="src/assets/images/uploads/clock.svg" alt="Czas" />
 						    </figure>
 						    <h3>91%</h3>
 						    <p>Projektów oddanych na czas i w budżecie</p>
 					    </div>
-					    <div className="tile-number hide-onload">
+					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
 						    <figure>
 							    <img src="src/assets/images/uploads/software-engineer.svg"
 							         alt="Software developer" />
@@ -154,14 +172,14 @@ const Home = () => {
 						    <h3>130+</h3>
 						    <p>Programistów i specjalistów</p>
 					    </div>
-					    <div className="tile-number hide-onload">
+					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
 						    <figure>
 							    <img src="src/assets/images/uploads/senior-developer.svg" alt="Senior developer" />
 						    </figure>
 						    <h3>69%</h3>
 						    <p>Programistów z długoletnim doświadczeniem</p>
 					    </div>
-					    <div className="tile-number hide-onload">
+					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
 						    <figure>
 							    <img src="src/assets/images/uploads/globe.svg" alt="Globus" />
 						    </figure>

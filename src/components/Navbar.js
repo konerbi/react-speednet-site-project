@@ -3,12 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import LanguageToggle from "./LanguageToggle";
 
 const Navbar = () => {
-  const [isSticky, setCondition] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
-    position > 100 ? setCondition(true) : setCondition(false);
+    position > 100 ? setIsSticky(true) : setIsSticky(false);
     setScrollPosition(position);
   };
 
