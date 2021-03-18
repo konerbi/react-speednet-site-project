@@ -20,6 +20,27 @@
   -webkit-font-smoothing: antialiased;
 }
 
+[class^=speednet-icons-] {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'speednet' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .speednet-icons-caret-down:before {
   content: "\E900"
 }
@@ -60,7 +81,7 @@
   content: "\E909"
 }
 
-.speednet-icons-tweet:before {
+.speednet-icons-twitter:before {
   content: "\E910"
 }
 
@@ -76,7 +97,7 @@
   content: "\E90B"
 }
 
-.speednet-icons-insta:before {
+.speednet-icons-instagram:before {
   content: "\E90C"
 }
 

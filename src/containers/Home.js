@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import PortfolioComponent from "../components/PortfolioComponent";
 import CreateTextHtml from "../components/CreateTextHTML";
+import ScrollToElement from "../components/ScrollToElement";
 
 const Home = () => {
 	const [isAboutUsOutsideViewport, setIsAboutUsOutsideViewport] = useState(true);
@@ -116,11 +117,6 @@ const Home = () => {
 		}
 	};
 
-	function goToByScroll(elementId, shouldBeExecuted) {
-		const scrollDiv = document.getElementById(elementId).offsetTop - 60;
-		window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
-	}
-
 	useEffect( () => {
 		window.addEventListener("scroll", handleScroll, { passive: true });
 		changeText(true);
@@ -178,7 +174,7 @@ const Home = () => {
 
 		    <div
 			    title="Poznaj nas"
-			    className="btn-scroll-more" onClick={() => goToByScroll('about-us', true)}
+			    className="btn-scroll-more" onClick={() => ScrollToElement('about-us')}
 		    >
 			    Poznaj nas
 		    </div>

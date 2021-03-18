@@ -43,6 +43,7 @@
     border: 0;
     vertical-align: baseline;
     outline: 0;
+    font-size: 18px;
   }
 
   .bg-1,
@@ -359,6 +360,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .header-intro p {
+    font-size: 30px;
+  }
+
   .btn-scroll-more {
     bottom: 70px;
     font-size: 27px;

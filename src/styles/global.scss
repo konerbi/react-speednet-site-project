@@ -24,18 +24,45 @@ body {
     font-weight: 400;
   }
 
-  p {
-    font-family: "Volte Regular", sans-serif;
-    font-size: 30px;
-  }
+  //p {
+  //  font-family: "Volte Regular", sans-serif;
+  //  font-size: 30px;
+  //}
 
-  a {
+  a, p {
     text-decoration: none !important;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Volte Regular",sans-serif;
+    vertical-align: baseline;
+    outline: 0;
   }
 
   img {
     border-style: none;
   }
+
+  footer {
+    display: block;
+  }
+}
+
+[class^=col-] {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 15px;
+  width: 100%;
 }
 
 section {
@@ -52,18 +79,18 @@ section {
   max-width: 1280px;
   z-index: 1;
 
-  h2,
-  p {
+  h2 {
     text-align: center;
-  }
-  p {
-    font-size: 20px;
   }
 
   .tile-project-row {
     max-width: 100%;
     margin: 70px 0;
   }
+}
+
+button, input, select, textarea {
+  font-family: "Volte Regular",sans-serif;
 }
 
 .section {

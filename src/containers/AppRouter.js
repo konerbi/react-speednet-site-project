@@ -8,6 +8,7 @@ import JobOffers from "./JobOffers";
 import Blog from "./Blog";
 import NotFound from "./NotFound";
 import Footer from "../components/Footer";
+import Cookie from "../components/Cookie";
 
 const AppRouter = () => (
 	<BrowserRouter>
@@ -22,6 +23,7 @@ const AppRouter = () => (
 				<Route component={NotFound} />
 			</Switch>
 			<Footer />
+			<Cookie />
 		</>
 	</BrowserRouter>
 );

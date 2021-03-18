@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import LanguageToggle from "./LanguageToggle";
+import ScrollToElement from "./ScrollToElement";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -77,7 +78,7 @@ const Navbar = () => {
                 Praca
               </NavLink>
             </li>
-            <li className="item">
+            <li className="item" onClick={() => ScrollToElement('footer')}>
               <div
                 id="contact-us-button"
                 title="Kontakt"
