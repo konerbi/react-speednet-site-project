@@ -1,11 +1,92 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import PortfolioComponent from "../components/PortfolioComponent";
+import CreateTextHtml from "../components/CreateTextHTML";
 
 const Home = () => {
 	const [isAboutUsOutsideViewport, setIsAboutUsOutsideViewport] = useState(true);
 	const [isWhyUsOutsideViewport, setIsWhyUsOutsideViewport] = useState(true);
+	const [isJobOutsideViewport, setIsJobOutsideViewport] = useState(true);
 	const [currentBackground, setCurrentBackground] = useState('background-1');
 	const [headerCurrentText, setHeaderCurrentText] = useState('');
+
+	const aboutUsElements = [
+		{
+			title: 'Dedykowane aplikacje webowe',
+			text: 'Tworzymy rozwiązania webowe, które pomagają zoptymalizować Twoją ofertę' +
+				' i usprawnić funkcjonowanie Twojej organizacji.',
+			imgSrc: 'src/assets/images/uploads/custom-web-apps.svg'
+		},
+		{
+			title: 'Dedykowane aplikacje mobilne',
+			text: 'Nowoczesna technologia działa na wielu urządzeniach. Wspieramy firmy, tak by ze swoją ofertą stały się' +
+				' integralną częścią Internetu Rzeczy.',
+			imgSrc: 'src/assets/images/uploads/custom-mobile-apps.svg'
+		},
+		{
+			title: 'Team Leasing',
+			text: 'Oferujemy dedykowane zespoły rozwojowe. Dopasowujemy skład<br>i liczebność zespołu' +
+				'<br>w zależności od potrzeb klienta.',
+			imgSrc: 'src/assets/images/uploads/team-leasing.svg'
+		},
+	];
+
+	const whyUsElements = [
+		{
+			title: '20+',
+			text: 'Lat na rynku',
+			imgSrc: 'src/assets/images/uploads/calendar.svg'
+		},
+		{
+			title: '91%',
+			text: 'Projektów oddanych na czas<br>i w budżecie',
+			imgSrc: 'src/assets/images/uploads/clock.svg'
+		},
+		{
+			title: '130+',
+			text: 'Programistów i specjalistów',
+			imgSrc: 'src/assets/images/uploads/software-engineer.svg'
+		},
+		{
+			title: '69%',
+			text: 'Programistów z długoletnim doświadczeniem',
+			imgSrc: 'src/assets/images/uploads/senior-developer.svg'
+		},
+		{
+			title: '14',
+			text: 'Klienci z 14 krajów',
+			imgSrc: 'src/assets/images/uploads/globe.svg'
+		}
+	];
+
+	const jobsElements = [
+		{
+			title: 'iOS Developer',
+			link: '/praca/ios-developer-pl/',
+			imgSrc: 'src/assets/images/uploads/job-ios.svg'
+		},
+		{
+			title: 'Android Developer',
+			link: '/praca/android-developer-pl/',
+			imgSrc: 'src/assets/images/uploads/job-android.svg'
+		},
+		{
+			title: 'PHP Developer',
+			link: '/praca/php-developer-pl/',
+			imgSrc: 'src/assets/images/uploads/job-php.svg'
+		},
+		{
+			title: 'JAVA Developer',
+			link: '/praca/java-developer-pl/',
+			imgSrc: 'src/assets/images/uploads/job-java.svg'
+		},
+		{
+			title: 'FrontEnd Developer',
+			link: '/praca/frontend-developer-pl/',
+			imgSrc: 'src/assets/images/uploads/job-frontend.png'
+		}
+	];
+
 	let currentHeaderIndex = 0;
 	let currentHeaderTextEndPosition = 0;
 	const headerTexts = [
@@ -30,9 +111,9 @@ const Home = () => {
 		if (position > 1200) {
 			setIsWhyUsOutsideViewport(false);
 		}
-		// if (position > 1300) {
-		// 	setIsAboutUsOutsideViewport(false);
-		// }
+		if (position > 3000) {
+			setIsJobOutsideViewport(false);
+		}
 	};
 
 	function goToByScroll(elementId, shouldBeExecuted) {
@@ -80,28 +161,28 @@ const Home = () => {
 
 	return (
     <div>
-      <header id="home-header-intro" className={`header-intro ${currentBackground}`}>
-        <div className="container">
-          <h1>
-            Tworzymy <span id="typed">{headerCurrentText}</span>
-            <span className="typed-cursor">|</span>
-          </h1>
-          <p>
-            Pracujemy w rytmie metodyk zwinnych (agile) i skupiamy się na
-            rozwiązaniach webowych oraz mobilnych
-          </p>
-        </div>
-	      <img src="src/assets/images/bg/bg_section_top_home_teams.jpg" className="bg-3" />
-	      <img src="src/assets/images/bg/bg_section_top_home_web_apps.jpg" className="bg-2" />
-	      <img src="src/assets/images/bg/bg_section_top_home_0.jpg" className="bg-1" />
+	    <header id="home-header-intro" className={`header-intro ${currentBackground}`}>
+		    <div className="container">
+			    <h1>
+				    Tworzymy <span id="typed">{headerCurrentText}</span>
+				    <span className="typed-cursor">|</span>
+			    </h1>
+			    <p>
+				    Pracujemy w rytmie metodyk zwinnych (agile) i skupiamy się na
+				    rozwiązaniach webowych oraz mobilnych
+			    </p>
+		    </div>
+		    <img src="src/assets/images/bg/bg_section_top_home_teams.jpg" className="bg-3"/>
+		    <img src="src/assets/images/bg/bg_section_top_home_web_apps.jpg" className="bg-2"/>
+		    <img src="src/assets/images/bg/bg_section_top_home_0.jpg" className="bg-1"/>
 
-        <div
-          title="Poznaj nas"
-          className="btn-scroll-more" onClick={() => goToByScroll('about-us', true)}
-        >
-          Poznaj nas
-        </div>
-      </header>
+		    <div
+			    title="Poznaj nas"
+			    className="btn-scroll-more" onClick={() => goToByScroll('about-us', true)}
+		    >
+			    Poznaj nas
+		    </div>
+	    </header>
 
 	    <section id="about-us" className="section">
 		    <div className="container">
@@ -112,84 +193,72 @@ const Home = () => {
 					    usług oraz respektując terminy i budżet.</p>
 				    <div className="tile-project-row">
 					    <div className="row">
-						    <div className="col-md-4">
-							    <div className={`tile-project ${isAboutUsOutsideViewport ? 'hide-onload' : ''}`}>
-								    <h3>Dedykowane aplikacje webowe</h3>
-								    <figure>
-									    <img src='src/assets/images/uploads/custom-web-apps.svg'
-									         alt="Dedykowane aplikacje webowe" />
-								    </figure>
-								    <p>Tworzymy rozwiązania webowe, które pomagają zoptymalizować Twoją ofertę i usprawnić
-									    funkcjonowanie Twojej organizacji.</p>
+						    {aboutUsElements.map((value, index) => {
+							    return <div key={'tile-project' + index} className="col-md-4">
+								    <div className={`tile-project ${isAboutUsOutsideViewport ? 'hide-onload' : ''}`}>
+									    <h3>{value.title}</h3>
+									    <figure>
+										    <img src={value.imgSrc}
+										         alt={value.title}/>
+									    </figure>
+									    <p dangerouslySetInnerHTML={CreateTextHtml(value.text)}></p>
+								    </div>
 							    </div>
-						    </div>
-						    <div className="col-md-4">
-							    <div className={`tile-project ${isAboutUsOutsideViewport ? 'hide-onload' : ''}`}>
-								    <h3>Dedykowane aplikacje mobilne</h3>
-								    <figure>
-									    <img src="src/assets/images/uploads/custom-mobile-apps.svg"
-									         alt="Dedykowane aplikacje mobilne" />
-								    </figure>
-								    <p>Nowoczesna technologia działa na wielu urządzeniach. Wspieramy firmy, tak by ze swoją ofertą
-									    stały się integralną częścią Internetu Rzeczy.</p>
-							    </div>
-						    </div>
-						    <div className="col-md-4">
-							    <div className={`tile-project ${isAboutUsOutsideViewport ? 'hide-onload' : ''}`}>
-								    <h3>Team Leasing</h3>
-								    <figure>
-									    <img src="src/assets/images/uploads/team-leasing.svg" alt="Team Leasing" />
-								    </figure>
-								    <p>Oferujemy dedykowane zespoły rozwojowe. Dopasowujemy skład i&nbsp;liczebność zespołu
-									    w&nbsp;zależności od potrzeb klienta.</p>
-							    </div>
-						    </div>
+						    })}
 					    </div>
 				    </div>
 			    </div>
 			    <div>
 				    <h2>Dlaczego my</h2>
 				    <div className="tile-number-row">
-					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
-						    <figure>
-							    <img src="src/assets/images/uploads/calendar.svg" alt="Kalendarz" />
-						    </figure>
-						    <h3>20+</h3>
-						    <p>Lat na rynku</p>
-					    </div>
-					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
-						    <figure>
-							    <img src="src/assets/images/uploads/clock.svg" alt="Czas" />
-						    </figure>
-						    <h3>91%</h3>
-						    <p>Projektów oddanych na czas i w budżecie</p>
-					    </div>
-					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
-						    <figure>
-							    <img src="src/assets/images/uploads/software-engineer.svg"
-							         alt="Software developer" />
-						    </figure>
-						    <h3>130+</h3>
-						    <p>Programistów i specjalistów</p>
-					    </div>
-					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
-						    <figure>
-							    <img src="src/assets/images/uploads/senior-developer.svg" alt="Senior developer" />
-						    </figure>
-						    <h3>69%</h3>
-						    <p>Programistów z długoletnim doświadczeniem</p>
-					    </div>
-					    <div className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
-						    <figure>
-							    <img src="src/assets/images/uploads/globe.svg" alt="Globus" />
-						    </figure>
-						    <h3>14</h3>
-						    <p>Klienci z 14 krajów</p>
-					    </div>
+					    {whyUsElements.map((value, index) => {
+						    return <div key={'tile-number' + index}
+						                className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
+							    <figure>
+								    <img src={value.imgSrc} alt={value.text}/>
+							    </figure>
+							    <h3>{value.title}</h3>
+							    <p dangerouslySetInnerHTML={CreateTextHtml(value.text)}></p>
+						    </div>
+					    })}
 				    </div>
 				    <div className="button-wrapper">
 					    <Link to="/o-nas" title="Zobacz więcej" className="btn-primary">Zobacz więcej</Link>
 				    </div>
+			    </div>
+		    </div>
+	    </section>
+
+	    <section className="section option">
+		    <div className="container">
+			    <h2>Nasze realizacje</h2>
+			    <PortfolioComponent/>
+			    <div className="button-wrapper">
+				    <a href="https://speednet.pl/portfolio/" title="Zobacz więcej" className="btn-primary">Zobacz więcej</a>
+			    </div>
+		    </div>
+	    </section>
+
+	    <section className="section">
+		    <div className="container">
+			    <h2>Praca</h2>
+			    <p>Wierzymy, że tylko utalentowani ludzie pomogą nam realizować nasze projekty. Czekamy na nowe osoby, aby
+				    dzieliły się z nami energią, entuzjazmem, doświadczeniem i pomysłami. Wpadnij do nas na rozmowę. Zobacz jak
+				    zaufanie i swoboda tworzą u nas kreatywną i wydajną przestrzeń.</p>
+			    <div className="tile-job-row">
+				    {jobsElements.map((value, index) => {
+					    return <div key={'tile-job' + index} className={`tile-job ${isJobOutsideViewport ? 'hide-onload' : ''}`}>
+						    <Link to={value.link}>
+							    <figure>
+								    <img src={value.imgSrc} alt=""/>
+							    </figure>
+							    <p>{value.title}</p>
+						    </Link>
+					    </div>
+				    })}
+			    </div>
+			    <div className="button-wrapper">
+				    <Link to="/praca/" title="Zobacz więcej" className="btn-primary">Zobacz więcej</Link>
 			    </div>
 		    </div>
 	    </section>

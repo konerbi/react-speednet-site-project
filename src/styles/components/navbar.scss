@@ -63,9 +63,6 @@
         cursor: pointer;
 
         .link {
-          display: -webkit-inline-flex;
-          display: -ms-inline-flexbox;
-          display: inline-flex;
           border-radius: 18px;
           font-family: Volte-Semibold, sans-serif;
           font-size: 21px;
@@ -110,5 +107,30 @@
 }
 .sticky:not(.opened-menu) {
   background-color: $color-background-primary;
-  border-bottom-color: #d9d9d9;
+  border-bottom-color: $color-background-quaternary;
 }
+
+@media (min-width: 1280px) {
+  .link {
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      opacity: 0;
+      transition: width .2s ease, opacity .2s ease;
+    }
+    &:hover:after {
+      width: 100%;
+      opacity: 1;
+      transition: width .2s ease,opacity .2s ease;
+    }
+  }
+  .link-special-2:hover:after {
+    width: 0;
+    opacity: 0;
+  }
+
+}
+

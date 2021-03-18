@@ -181,7 +181,8 @@
 }
 
 .tile-project,
-.tile-number {
+.tile-number,
+.tile-job {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -285,6 +286,21 @@
   }
 }
 
+.tile-job {
+  padding: 0 15px;
+  align-items: center;
+
+  figure {
+    margin-bottom: 30px;
+    width: 100%;
+    height: 100px;
+
+    img {
+      object-fit: scale-down;
+    }
+  }
+}
+
 .button-wrapper {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -320,9 +336,10 @@
   text-align: center;
   text-decoration: none;
   transition: background-color 0.2s ease;
-}
-.btn-primary:hover {
-  background-color: $color-button-hover;
+
+  &:hover {
+    background-color: $color-button-hover;
+  }
 }
 
 .typed-cursor {
@@ -340,6 +357,7 @@
     opacity: 1;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .btn-scroll-more {
     bottom: 70px;
@@ -376,7 +394,12 @@
     }
   }
 
+  .tile-job {
+    max-width: 20%;
+  }
+
   @include sidesToMiddleShowUp('.tile-number.hide-onload', 1, 5);
+  @include sidesToMiddleShowUp('.tile-job.hide-onload', 1, 5);
 
   .btn-primary {
     min-width: 300px;

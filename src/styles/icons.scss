@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'speednet';
+  font-style: normal;
+  font-weight: normal;
+  src: local('speednet'), url('../assets/fonts/speednet.ttf') format('truetype');
+}
+
+.speednet-icons {
+  /* use !important to prevent issues with browser extensions that valueChange fonts */
+  font-family: 'speednet' !important;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: normal;
+  font-style: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.speednet-icons-caret-down:before {
+  content: "\E900"
+}
+
+.speednet-icons-arrow-left:before {
+  content: "\E901"
+}
+
+.speednet-icons-arrow-right:before {
+  content: "\E902"
+}
+
+.speednet-icons-caret-left:before {
+  content: "\E903"
+}
+
+.speednet-icons-caret-right:before {
+  content: "\E904"
+}
+
+.speednet-icons-caret-up:before {
+  content: "\E905"
+}
+
+.speednet-icons-clutch:before {
+  content: "\E906"
+}
+
+.speednet-icons-devices:before {
+  content: "\E907"
+}
+
+.speednet-icons-cross:before {
+  content: "\E908"
+}
+
+.speednet-icons-download:before {
+  content: "\E909"
+}
+
+.speednet-icons-tweet:before {
+  content: "\E910"
+}
+
+.speednet-icons-small-cross:before {
+  content: "\E911"
+}
+
+.speednet-icons-mail:before {
+  content: "\E90A"
+}
+
+.speednet-icons-facebook:before {
+  content: "\E90B"
+}
+
+.speednet-icons-insta:before {
+  content: "\E90C"
+}
+
+.speednet-icons-linkedin:before {
+  content: "\E90D"
+}
+
+.speednet-icons-mobile:before {
+  content: "\E90E"
+}
+
+.speednet-icons-desktop:before {
+  content: "\E90F"
+}
