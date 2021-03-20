@@ -62,6 +62,10 @@
         margin: 0 15px;
         cursor: pointer;
 
+        &:last-child {
+          margin-left: 0;
+        }
+
         .link {
           border-radius: 18px;
           font-family: Volte-Semibold, sans-serif;

@@ -97,23 +97,8 @@ const Navbar = () => {
                 Blog
               </NavLink>
             </li>
-            <li className="item language">
+            <li className="item">
               <LanguageToggle></LanguageToggle>
-              {/*<a href="javascript:void(0);" title="" className="link">*/}
-              {/*  Pl <i className="ico-chevron-down"></i>*/}
-              {/*</a>*/}
-              {/*<ul className="languages-list">*/}
-              {/*  <li>*/}
-              {/*    <a href="javascript:void(0);" title="" className="active">*/}
-              {/*      Pl <i className="ico-chevron-down"></i>*/}
-              {/*    </a>*/}
-              {/*  </li>*/}
-              {/*  <li>*/}
-              {/*    <a rel="alternate" hrefLang="x-default" href="/en" title="">*/}
-              {/*      En*/}
-              {/*    </a>*/}
-              {/*  </li>*/}
-              {/*</ul>*/}
             </li>
           </ul>
         </div>
