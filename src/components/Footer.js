@@ -65,7 +65,7 @@ const Footer = () => {
 
 							<ul className="menu">
 								{menuItems.map(((value, index) => {
-									return <li><Link to={value.pathname} title={value.title}
+									return <li key={'menuItem-' + index}><Link to={value.pathname} title={value.title}
 									                 className={location.pathname === value.pathname ? 'active' : 'alternate'}>
 										{value.title}</Link></li>
 								}))}
@@ -79,7 +79,7 @@ const Footer = () => {
 						</div>
 						<ul className="social-box">
 							{socialItems.map(((value, index) => {
-								return <li><a href={value.href} title={value.title}
+								return <li key={'socialItem-' + index}><a href={value.href} title={value.title}
 								              target="_blank"><i className={value.icon}></i></a></li>
 							}))}
 						</ul>
