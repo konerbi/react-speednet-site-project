@@ -64,6 +64,7 @@
 
         &:last-child {
           margin-left: 0;
+          border-left: 1px solid $color-font-primary;
         }
 
         .link {
@@ -134,6 +135,16 @@
   .link-special-2:hover:after {
     width: 0;
     opacity: 0;
+  }
+
+  .sticky {
+    .navbar .main-menu .menu .item:last-child {
+      margin-left: 0;
+      border-left: 1px solid $color-font-secondary;
+    }
+    .languages-list a {
+      font-size: 16px;
+    }
   }
 
 }
