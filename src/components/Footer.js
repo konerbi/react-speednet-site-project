@@ -3,8 +3,55 @@ import {Link, useLocation} from "react-router-dom";
 
 const Footer = () => {
 	const location = useLocation();
-	console.log(location.pathname);
-
+	const menuItems = [
+		{
+			title: 'Home',
+			pathname: '/'
+		},
+		{
+			title: 'O Nas',
+			pathname: '/o-nas/'
+		},
+		{
+			title: 'Portfolio',
+			pathname: '/portfolio/'
+		},
+		{
+			title: 'Praca',
+			pathname: '/praca/'
+		},
+		{
+			title: 'Blog',
+			pathname: '/blog/'
+		}
+	];
+	const socialItems = [
+		{
+			title: 'Clutch - B2B Ratings &amp; Reviews',
+			href: 'https://clutch.co/profile/speednet',
+			icon: 'speednet-icons-clutch'
+		},
+		{
+			title: 'Facebook',
+			href: 'https://www.facebook.com/speednetpl',
+			icon: 'speednet-icons-facebook'
+		},
+		{
+			title: 'LinkedIn',
+			href: 'https://www.linkedin.com/company/speednetpl',
+			icon: 'speednet-icons-linkedin'
+		},
+		{
+			title: 'Instagram',
+			href: 'https://www.instagram.com/speednet.pl/',
+			icon: 'speednet-icons-instagram'
+		},
+		{
+			title: 'Twitter',
+			href: 'https://twitter.com/speednetpl',
+			icon: 'speednet-icons-twitter'
+		}
+	];
 	return (
 		<footer className="footer" id="footer">
 			<div className="container">
@@ -17,20 +64,12 @@ const Footer = () => {
 						<nav className="footer-menu">
 
 							<ul className="menu">
-								<li><Link rel="alternate" hrefLang="pl-PL" to="/" title="Home"
-								       className={location.pathname === '/' ? 'active' : 'alternate'}>Home</Link></li>
-								<li><Link rel="alternate" hrefLang="pl-PL" to="/o-nas/" title="O Nas"
-								          className={location.pathname === '/o-nas/' ? 'active' : 'alternate'}>O Nas</Link></li>
-								<li><Link rel="alternate" hrefLang="pl-PL" to="/portfolio/" title="Portfolio"
-								          className={location.pathname === '/portfolio/' ? 'active' : 'alternate'}>Portfolio</Link></li>
-								<li><Link rel="alternate" hrefLang="pl-PL" to="/praca/" title="Praca"
-								          className={location.pathname === '/praca/' ? 'active' : 'alternate'}>Praca</Link></li>
-								<li><Link rel="alternate" hrefLang="pl-PL" to="/blog/" title="Blog"
-								          className={location.pathname === '/blog/' ? 'active' : 'alternate'}>Blog</Link>
-								</li>
+								{menuItems.map(((value, index) => {
+									return <li><Link to={value.pathname} title={value.title}
+									                 className={location.pathname === value.pathname ? 'active' : 'alternate'}>
+										{value.title}</Link></li>
+								}))}
 							</ul>
-
-
 						</nav>
 						<div className="contact-data">
 							<a name="contact" href="mailto:info@speednet.pl" title="E-mail">info@speednet.pl</a>
@@ -39,16 +78,10 @@ const Footer = () => {
 								| KRS: 0000295602</p>
 						</div>
 						<ul className="social-box">
-							<li><a href="https://clutch.co/profile/speednet" title="Clutch - B2B Ratings &amp; Reviews"
-							       target="_blank"><i className="speednet-icons speednet-icons-clutch"></i></a></li>
-							<li><a href="https://www.facebook.com/speednetpl" title="Facebook" data-title="Facebook"
-							       target="_blank"><i className="speednet-icons speednet-icons-facebook"></i></a></li>
-							<li><a href="https://www.linkedin.com/company/speednetpl" title="LinkedIn" data-title="LinkedIn"
-							       target="_blank"><i className="speednet-icons speednet-icons-linkedin"></i></a></li>
-							<li><a href="https://www.instagram.com/speednet.pl/" title="Instagram" data-title="Instagram"
-							       target="_blank"><i className="speednet-icons speednet-icons-instagram"></i></a></li>
-							<li><a href="https://twitter.com/speednetpl" title="Twitter" data-title="Twitter" target="_blank"><i
-								className="speednet-icons speednet-icons-twitter"></i></a></li>
+							{socialItems.map(((value, index) => {
+								return <li><a href={value.href} title={value.title}
+								              target="_blank"><i className={value.icon}></i></a></li>
+							}))}
 						</ul>
 						<div className="copyrights">Speednet sp. z o.o. <span id="fYear">2021</span>. Wszelkie prawa zastrzeżone.
 						</div>
