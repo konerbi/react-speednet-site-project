@@ -2,10 +2,45 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import LanguageToggle from "./LanguageToggle";
 import ScrollToElement from "./ScrollToElement";
+import {useTranslation} from "react-i18next";
 
 const Navbar = () => {
+  const [t, i18n] = useTranslation('common');
   const [isSticky, setIsSticky] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const menuItems = [
+    {
+      title: 'navbar.aboutUs',
+      path: '/about-us',
+      isScrollLink: false,
+      scrollTo: null
+    },
+    {
+      title: 'navbar.portfolio',
+      path: '/portfolio',
+      isScrollLink: false,
+      scrollTo: null
+    },
+    {
+      title: 'navbar.jobs',
+      path: '/jobs',
+      isScrollLink: false,
+      scrollTo: null
+    },
+    {
+      title: 'navbar.contact',
+      path: null,
+      isScrollLink: true,
+      scrollTo: 'footer'
+    },
+    {
+      title: 'navbar.blog',
+      path: '/blog',
+      isScrollLink: false,
+      scrollTo: null
+    }
+  ];
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -48,55 +83,28 @@ const Navbar = () => {
 
         <div id="main-menu" className="main-menu">
           <ul className="menu ">
-            <li className="item">
-              <NavLink
-                to="/o-nas"
-                activeClassName="navbar-element-active"
-                title="O nas"
-                className="link"
-              >
-                O nas
-              </NavLink>
-            </li>
-            <li className="item">
-              <NavLink
-                to="/portfolio"
-                activeClassName="navbar-element-active"
-                title="Portfolio"
-                className="link"
-              >
-                Portfolio
-              </NavLink>
-            </li>
-            <li className="item">
-              <NavLink
-                to="/praca"
-                activeClassName="navbar-element-active"
-                title="Praca"
-                className="link"
-              >
-                Praca
-              </NavLink>
-            </li>
-            <li className="item" onClick={() => ScrollToElement('footer')}>
-              <div
-                id="contact-us-button"
-                title="Kontakt"
-                className="link link-special-2"
-              >
-                Kontakt
-              </div>
-            </li>
-            <li className="item">
-              <NavLink
-                to="/blog"
-                activeClassName="navbar-element-active"
-                title="Blog"
-                className="link"
-              >
-                Blog
-              </NavLink>
-            </li>
+            {menuItems.map(((value, index) => {
+              return value.isScrollLink ?
+                <li key={'menu-item-' + index} className="item" onClick={() => ScrollToElement(value.scrollTo)}>
+                  <div
+                    title={t(value.title)}
+                    className="link link-special-2"
+                  >
+                    {t(value.title)}
+                  </div>
+                </li>
+                :
+                <li key={'menu-item-' + index} className="item">
+                  <NavLink
+                    to={value.path}
+                    activeClassName="navbar-element-active"
+                    title={t(value.title)}
+                    className="link"
+                  >
+                    {t(value.title)}
+                  </NavLink>
+                </li>
+            }))}
             <li className="item">
               <LanguageToggle></LanguageToggle>
             </li>

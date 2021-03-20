@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JobOffers = () => {
+const Jobs = () => {
 	return (
 		<div>
 			JobOffers
@@ -8,4 +8,4 @@ const JobOffers = () => {
 	);
 };
 
-export default JobOffers;
+export default Jobs;

@@ -63,27 +63,27 @@ const Home = () => {
 	const jobsElements = [
 		{
 			title: 'iOS Developer',
-			link: '/praca/ios-developer-pl/',
+			link: '/job/ios-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-ios.svg'
 		},
 		{
 			title: 'Android Developer',
-			link: '/praca/android-developer-pl/',
+			link: '/job/android-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-android.svg'
 		},
 		{
 			title: 'PHP Developer',
-			link: '/praca/php-developer-pl/',
+			link: '/job/php-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-php.svg'
 		},
 		{
 			title: 'JAVA Developer',
-			link: '/praca/java-developer-pl/',
+			link: '/job/java-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-java.svg'
 		},
 		{
 			title: 'FrontEnd Developer',
-			link: '/praca/frontend-developer-pl/',
+			link: '/job/frontend-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-frontend.png'
 		}
 	];
@@ -219,7 +219,7 @@ const Home = () => {
 					    })}
 				    </div>
 				    <div className="button-wrapper">
-					    <Link to="/o-nas" title="Zobacz więcej" className="btn-primary">Zobacz więcej</Link>
+					    <Link to="/about-us" title="Zobacz więcej" className="btn-primary">Zobacz więcej</Link>
 				    </div>
 			    </div>
 		    </div>
@@ -254,7 +254,7 @@ const Home = () => {
 				    })}
 			    </div>
 			    <div className="button-wrapper">
-				    <Link to="/praca/" title="Zobacz więcej" className="btn-primary">Zobacz więcej</Link>
+				    <Link to="/jobs/" title="Zobacz więcej" className="btn-primary">Zobacz więcej</Link>
 			    </div>
 		    </div>
 	    </section>

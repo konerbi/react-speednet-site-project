@@ -10,7 +10,7 @@ const Footer = () => {
 		},
 		{
 			title: 'O Nas',
-			pathname: '/o-nas/'
+			pathname: '/about-us/'
 		},
 		{
 			title: 'Portfolio',
@@ -18,7 +18,7 @@ const Footer = () => {
 		},
 		{
 			title: 'Praca',
-			pathname: '/praca/'
+			pathname: '/jobs/'
 		},
 		{
 			title: 'Blog',

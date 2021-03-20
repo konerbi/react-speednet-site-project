@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Home from "./Home";
 import About from "./About";
 import Portfolio from "./Portfolio";
-import JobOffers from "./JobOffers";
+import Jobs from "./Jobs";
 import Blog from "./Blog";
 import NotFound from "./NotFound";
 import Footer from "../components/Footer";
@@ -16,9 +16,9 @@ const AppRouter = () => (
 			<Navbar />
 			<Switch>
 				<Route path="/" exact component={Home} />
-				<Route path="/o-nas" exact component={About} />
+				<Route path="/about-us" exact component={About} />
 				<Route path="/portfolio" exact component={Portfolio} />
-				<Route path="/praca" exact component={JobOffers} />
+				<Route path="/jobs" exact component={Jobs} />
 				<Route path="/blog" exact component={Blog} />
 				<Route component={NotFound} />
 			</Switch>

@@ -1,19 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
+import {useTranslation} from "react-i18next";
 
 const LanguageToggle = () => {
+	const [t, i18n] = useTranslation('common');
 	const [currentLanguage, setCurrentLanguage] = useState('pl');
 	const [alternateLanguage, setAlternateLanguage] = useState('en');
 	const [showList, setShowList] = useState(false);
-
-	useEffect( () => {
-		setCurrentLanguage('pl');
-	}, [])
 
 	function handleToggle(value = true) {
 		setShowList(value);
 	}
 
 	function handleLanguage(value) {
+		i18n.changeLanguage(value);
 		setAlternateLanguage(currentLanguage);
 		setCurrentLanguage(value);
 		setShowList(false);
