@@ -3,8 +3,10 @@ import {Link} from "react-router-dom";
 import PortfolioComponent from "../components/PortfolioComponent";
 import CreateTextHtml from "../components/CreateTextHTML";
 import ScrollToElement from "../components/ScrollToElement";
+import {useTranslation} from "react-i18next";
 
 const Home = () => {
+	const [t, i18n] = useTranslation('common');
 	const [isAboutUsOutsideViewport, setIsAboutUsOutsideViewport] = useState(true);
 	const [isWhyUsOutsideViewport, setIsWhyUsOutsideViewport] = useState(true);
 	const [isJobOutsideViewport, setIsJobOutsideViewport] = useState(true);
@@ -13,88 +15,86 @@ const Home = () => {
 
 	const aboutUsElements = [
 		{
-			title: 'Dedykowane aplikacje webowe',
-			text: 'Tworzymy rozwiązania webowe, które pomagają zoptymalizować Twoją ofertę' +
-				' i usprawnić funkcjonowanie Twojej organizacji.',
+			title: 'home.aboutUs.elements.webApps.title',
+			text: 'home.aboutUs.elements.webApps.text',
 			imgSrc: 'src/assets/images/uploads/custom-web-apps.svg'
 		},
 		{
-			title: 'Dedykowane aplikacje mobilne',
-			text: 'Nowoczesna technologia działa na wielu urządzeniach. Wspieramy firmy, tak by ze swoją ofertą stały się' +
-				' integralną częścią Internetu Rzeczy.',
+			title: 'home.aboutUs.elements.mobileApps.title',
+			text: 'home.aboutUs.elements.mobileApps.text',
 			imgSrc: 'src/assets/images/uploads/custom-mobile-apps.svg'
 		},
 		{
-			title: 'Team Leasing',
-			text: 'Oferujemy dedykowane zespoły rozwojowe. Dopasowujemy skład<br>i liczebność zespołu' +
-				'<br>w zależności od potrzeb klienta.',
+			title: 'home.aboutUs.elements.teams.title',
+			text: 'home.aboutUs.elements.teams.text',
 			imgSrc: 'src/assets/images/uploads/team-leasing.svg'
 		},
 	];
 
 	const whyUsElements = [
 		{
-			title: '20+',
-			text: 'Lat na rynku',
+			title: 'home.whyUs.elements.years.title',
+			text: 'home.whyUs.elements.years.text',
 			imgSrc: 'src/assets/images/uploads/calendar.svg'
 		},
 		{
-			title: '91%',
-			text: 'Projektów oddanych na czas<br>i w budżecie',
+			title: 'home.whyUs.elements.projects.title',
+			text: 'home.whyUs.elements.projects.text',
 			imgSrc: 'src/assets/images/uploads/clock.svg'
 		},
 		{
-			title: '130+',
-			text: 'Programistów i specjalistów',
+			title: 'home.whyUs.elements.specialists.title',
+			text: 'home.whyUs.elements.specialists.text',
 			imgSrc: 'src/assets/images/uploads/software-engineer.svg'
 		},
 		{
-			title: '69%',
-			text: 'Programistów z długoletnim doświadczeniem',
+			title: 'home.whyUs.elements.developers.title',
+			text: 'home.whyUs.elements.developers.text',
 			imgSrc: 'src/assets/images/uploads/senior-developer.svg'
 		},
 		{
-			title: '14',
-			text: 'Klienci z 14 krajów',
+			title: 'home.whyUs.elements.clients.title',
+			text: 'home.whyUs.elements.clients.text',
 			imgSrc: 'src/assets/images/uploads/globe.svg'
 		}
 	];
 
 	const jobsElements = [
 		{
-			title: 'iOS Developer',
-			link: '/job/ios-developer-pl/',
+			title: 'home.careers.elements.iOS',
+			link: '/jobs/ios-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-ios.svg'
 		},
 		{
-			title: 'Android Developer',
-			link: '/job/android-developer-pl/',
+			title: 'home.careers.elements.android',
+			link: '/jobs/android-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-android.svg'
 		},
 		{
-			title: 'PHP Developer',
-			link: '/job/php-developer-pl/',
+			title: 'home.careers.elements.php',
+			link: '/jobs/php-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-php.svg'
 		},
 		{
-			title: 'JAVA Developer',
-			link: '/job/java-developer-pl/',
+			title: 'home.careers.elements.java',
+			link: '/jobs/java-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-java.svg'
 		},
 		{
-			title: 'FrontEnd Developer',
-			link: '/job/frontend-developer-pl/',
+			title: 'home.careers.elements.frontend',
+			link: '/jobs/frontend-developer-pl/',
 			imgSrc: 'src/assets/images/uploads/job-frontend.png'
 		}
 	];
 
 	let currentHeaderIndex = 0;
 	let currentHeaderTextEndPosition = 0;
+	let headerTextTimer;
 	const headerTexts = [
-		'oprogramowanie',
-		'aplikacje mobilne',
-		'aplikacje webowe',
-		'dedykowane zespoły'
+		'home.headerTexts.software',
+		'home.headerTexts.mobiles',
+		'home.headerTexts.webs',
+		'home.headerTexts.teams'
 	];
 	const backgroundClassNames = [
 		'background-1',
@@ -120,9 +120,16 @@ const Home = () => {
 	useEffect( () => {
 		window.addEventListener("scroll", handleScroll, { passive: true });
 		changeText(true);
+		i18n.on('languageChanged', () => {
+			window.clearTimeout(headerTextTimer);
+			currentHeaderIndex = 0;
+			currentHeaderTextEndPosition = 0;
+			setCurrentBackground(backgroundClassNames[currentHeaderIndex]);
+			changeText(true);
+		});
 
 		return () => {
-			clearTimeout();
+			window.clearTimeout(headerTextTimer);
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
@@ -130,28 +137,31 @@ const Home = () => {
 	function changeText(increaseText) {
 		let text = headerCurrentText;
 		currentHeaderTextEndPosition = increaseText ? currentHeaderTextEndPosition + 1 : currentHeaderTextEndPosition - 1;
-		text = headerTexts[currentHeaderIndex].slice(0, currentHeaderTextEndPosition);
+		text = t(headerTexts[currentHeaderIndex]).slice(0, currentHeaderTextEndPosition);
 
 		setHeaderCurrentText(text);
 
-		let timeoutIncrease = 2000 / headerTexts[currentHeaderIndex].length;
-		let timeoutDecrease = 500 / headerTexts[currentHeaderIndex].length;
+		let timeoutIncrease = 2000 / t(headerTexts[currentHeaderIndex]).length;
+		let timeoutDecrease = 500 / t(headerTexts[currentHeaderIndex]).length;
 
-		if (increaseText && text.length === headerTexts[currentHeaderIndex].length) {
-			setTimeout(wait, 4000, false);
+		if (increaseText && text.length === t(headerTexts[currentHeaderIndex]).length) {
+			window.clearTimeout(headerTextTimer);
+			headerTextTimer = window.setTimeout(wait, 4000, false);
 		} else {
 			if (!increaseText && text.length === 0) {
 				currentHeaderIndex = currentHeaderIndex < headerTexts.length - 1 ? currentHeaderIndex + 1 : 0;
 				currentHeaderTextEndPosition = 0;
 				setCurrentBackground(backgroundClassNames[currentHeaderIndex]);
-				setTimeout(wait, timeoutIncrease, true);
+				window.clearTimeout(headerTextTimer);
+				headerTextTimer = window.setTimeout(wait, timeoutIncrease, true);
 			} else {
-				setTimeout(wait, increaseText ? timeoutIncrease : timeoutDecrease, increaseText);
+				window.clearTimeout(headerTextTimer);
+				headerTextTimer = window.setTimeout(wait, increaseText ? timeoutIncrease : timeoutDecrease, increaseText);
 			}
 		}
 	}
 	function wait(increaseText) {
-		clearTimeout();
+		window.clearTimeout(headerTextTimer);
 		changeText(increaseText);
 	}
 
@@ -160,12 +170,11 @@ const Home = () => {
 	    <header id="home-header-intro" className={`header-intro ${currentBackground}`}>
 		    <div className="container">
 			    <h1>
-				    Tworzymy <span id="typed">{headerCurrentText}</span>
+				    {t('home.headerTextPrefix')} <span id="typed">{headerCurrentText}</span>
 				    <span className="typed-cursor">|</span>
 			    </h1>
 			    <p>
-				    Pracujemy w rytmie metodyk zwinnych (agile) i skupiamy się na
-				    rozwiązaniach webowych oraz mobilnych
+				    {t('home.headerText')}
 			    </p>
 		    </div>
 		    <img src="src/assets/images/bg/bg_section_top_home_teams.jpg" className="bg-3"/>
@@ -173,31 +182,29 @@ const Home = () => {
 		    <img src="src/assets/images/bg/bg_section_top_home_0.jpg" className="bg-1"/>
 
 		    <div
-			    title="Poznaj nas"
+			    title={t('home.meetUsButton')}
 			    className="btn-scroll-more" onClick={() => ScrollToElement('about-us')}
 		    >
-			    Poznaj nas
+			    {t('home.meetUsButton')}
 		    </div>
 	    </header>
 
 	    <section id="about-us" className="section">
 		    <div className="container">
 			    <div>
-				    <h2>Tworzymy oprogramowanie</h2>
-				    <p>To najlepszy moment, by skorzystać z pomocy doświadczonego i niezawodnego partnera. Kogoś takiego jak my,
-					    kto przeanalizuje potrzeby, doradzi i przeprowadzi przez cały proces rozwoju zapewniając wysoką jakość
-					    usług oraz respektując terminy i budżet.</p>
+				    <h2>{t('home.aboutUs.header')}</h2>
+				    <p>{t('home.aboutUs.subheader')}</p>
 				    <div className="tile-project-row">
 					    <div className="row">
 						    {aboutUsElements.map((value, index) => {
 							    return <div key={'tile-project' + index} className="col-md-4">
 								    <div className={`tile-project ${isAboutUsOutsideViewport ? 'hide-onload' : ''}`}>
-									    <h3>{value.title}</h3>
+									    <h3>{t(value.title)}</h3>
 									    <figure>
 										    <img src={value.imgSrc}
-										         alt={value.title}/>
+										         alt={t(value.title)}/>
 									    </figure>
-									    <p dangerouslySetInnerHTML={CreateTextHtml(value.text)}></p>
+									    <p dangerouslySetInnerHTML={CreateTextHtml(t(value.text))}></p>
 								    </div>
 							    </div>
 						    })}
@@ -205,21 +212,21 @@ const Home = () => {
 				    </div>
 			    </div>
 			    <div>
-				    <h2>Dlaczego my</h2>
+				    <h2>{t('home.whyUs.header')}</h2>
 				    <div className="tile-number-row">
 					    {whyUsElements.map((value, index) => {
 						    return <div key={'tile-number' + index}
 						                className={`tile-number ${isWhyUsOutsideViewport ? 'hide-onload' : ''}`}>
 							    <figure>
-								    <img src={value.imgSrc} alt={value.text}/>
+								    <img src={value.imgSrc} alt={t(value.text)}/>
 							    </figure>
-							    <h3>{value.title}</h3>
-							    <p dangerouslySetInnerHTML={CreateTextHtml(value.text)}></p>
+							    <h3>{t(value.title)}</h3>
+							    <p dangerouslySetInnerHTML={CreateTextHtml(t(value.text))}></p>
 						    </div>
 					    })}
 				    </div>
 				    <div className="button-wrapper">
-					    <Link to="/about-us" title="Zobacz więcej" className="btn-primary">Zobacz więcej</Link>
+					    <Link to="/about-us" title={t('buttons.seeMoreButton')} className="btn-primary">{t('buttons.seeMoreButton')}</Link>
 				    </div>
 			    </div>
 		    </div>
@@ -227,20 +234,18 @@ const Home = () => {
 
 	    <section className="section option">
 		    <div className="container">
-			    <h2>Nasze realizacje</h2>
+			    <h2>{t('businessCases.header')}</h2>
 			    <PortfolioComponent/>
 			    <div className="button-wrapper">
-				    <a href="https://speednet.pl/portfolio/" title="Zobacz więcej" className="btn-primary">Zobacz więcej</a>
+				    <a href="https://speednet.pl/portfolio/" title={t('buttons.seeMoreButton')} className="btn-primary">{t('buttons.seeMoreButton')}</a>
 			    </div>
 		    </div>
 	    </section>
 
 	    <section className="section">
 		    <div className="container">
-			    <h2>Praca</h2>
-			    <p>Wierzymy, że tylko utalentowani ludzie pomogą nam realizować nasze projekty. Czekamy na nowe osoby, aby
-				    dzieliły się z nami energią, entuzjazmem, doświadczeniem i pomysłami. Wpadnij do nas na rozmowę. Zobacz jak
-				    zaufanie i swoboda tworzą u nas kreatywną i wydajną przestrzeń.</p>
+			    <h2>{t('home.careers.header')}</h2>
+			    <p>{t('home.careers.subheader')}</p>
 			    <div className="tile-job-row">
 				    {jobsElements.map((value, index) => {
 					    return <div key={'tile-job' + index} className={`tile-job ${isJobOutsideViewport ? 'hide-onload' : ''}`}>
@@ -248,13 +253,13 @@ const Home = () => {
 							    <figure>
 								    <img src={value.imgSrc} alt=""/>
 							    </figure>
-							    <p>{value.title}</p>
+							    <p>{t(value.title)}</p>
 						    </Link>
 					    </div>
 				    })}
 			    </div>
 			    <div className="button-wrapper">
-				    <Link to="/jobs/" title="Zobacz więcej" className="btn-primary">Zobacz więcej</Link>
+				    <Link to="/jobs/" title={t('buttons.seeMoreButton')} className="btn-primary">{t('buttons.seeMoreButton')}</Link>
 			    </div>
 		    </div>
 	    </section>

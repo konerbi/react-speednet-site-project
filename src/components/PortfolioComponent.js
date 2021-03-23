@@ -1,46 +1,48 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import CreateTextHtml from "./CreateTextHTML";
+import {useTranslation} from "react-i18next";
 
 const PortfolioComponent = () => {
+	const [t, i18n] = useTranslation('common');
 	const portfolioElements = [
 		{
-			title: 'Pop Pankki',
-			text: 'Aplikacja mobilna integrująca usługi bankowe i ubezpieczeniowe 26 banków w Finlandii.',
+			title: 'businessCases.elements.popPankki.title',
+			text: 'businessCases.elements.popPankki.text',
 			imgSrc: 'src/assets/images/uploads/logo-pop-pankki-darkbg.png',
-			link: '/projekty/pop-pankki-pl/'
+			link: '/projects/pop-pankki-pl/'
 		},
 		{
-			title: 'PZU Cash',
-			text: 'System internetowy do przydzielania pracownikom pożyczek gotówkowych. Potrafi generować pożyczki w czasie rzeczywistym.',
+			title: 'businessCases.elements.pzu.title',
+			text: 'businessCases.elements.pzu.text',
 			imgSrc: 'src/assets/images/uploads/logo-pzu-cash-dark-bg.png',
-			link: '/projekty/pzu-cash-pl/'
+			link: '/projects/pzu-cash-pl/'
 		},
 		{
-			title: 'Telia Company',
-			text: 'Platforma biznesowa do zarządzania kontami e-mail, udostępniania kontaktów, notatek i powiadomień wszystkim członkom firmy.',
+			title: 'businessCases.elements.telia.title',
+			text: 'businessCases.elements.telia.text',
 			imgSrc: 'src/assets/images/uploads/logo-telia-company-dark-bg.png',
-			link: '/projekty/telia-company-pl/'
+			link: '/projects/telia-company-pl/'
 		},
 		{
-			title: 'SAAR Landesbank',
-			text: 'Całościowy proces digital transformation dla francusko-niemieckiego banku regionalnego.',
+			title: 'businessCases.elements.saar.title',
+			text: 'businessCases.elements.saar.text',
 			imgSrc: 'src/assets/images/uploads/logo-saar-lb-dark-bg.png',
-			link: '/projekty/saar-landesbank-pl/'
+			link: '/projects/saar-landesbank-pl/'
 		}
 	];
 
 	return <ul className="portfolio-list">
 		{portfolioElements.map((value, index) => {
 			return <li key={'portfolio-item' + index} className="portfolio-item">
-				<Link to={value.link} title={value.title} className="portfolio">
+				<Link to={value.link} title={t(value.title)} className="portfolio">
 					<figure>
 						<img src={value.imgSrc} alt=""/>
-						<span className="badge-secondary">Zobacz</span>
+						<span className="badge-secondary">{t('buttons.seeButton')}</span>
 					</figure>
 					<div className="description">
-						<h4>{value.title}</h4>
-						<p dangerouslySetInnerHTML={CreateTextHtml(value.text)}></p>
+						<h4>{t(value.title)}</h4>
+						<p dangerouslySetInnerHTML={CreateTextHtml(t(value.text))}></p>
 					</div>
 				</Link>
 			</li>

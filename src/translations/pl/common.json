@@ -1,5 +1,6 @@
 {
   "navbar": {
+    "home": "Home",
     "aboutUs": "O Nas",
     "portfolio": "Portfolio",
     "jobs": "Praca",
@@ -7,6 +8,101 @@
     "blog": "Blog"
   },
   "home": {
-
+    "headerTextPrefix": "Tworzymy",
+    "headerTexts": {
+      "software": "oprogramowanie",
+      "mobiles": "aplikacje mobilne",
+      "webs": "aplikacje webowe",
+      "teams": "dedykowane zespoły"
+    },
+    "headerText": "Pracujemy w rytmie metodyk zwinnych (agile) i skupiamy się na rozwiązaniach webowych oraz mobilnych",
+    "meetUsButton": "Poznaj nas",
+    "aboutUs": {
+      "header": "Tworzymy oprogramowanie",
+      "subheader": "To najlepszy moment, by skorzystać z pomocy doświadczonego i niezawodnego partnera. Kogoś takiego jak my, kto przeanalizuje potrzeby, doradzi i przeprowadzi przez cały proces rozwoju zapewniając wysoką jakość usług oraz respektując terminy i budżet.",
+      "elements": {
+        "webApps": {
+          "title": "Dedykowane aplikacje webowe",
+          "text": "Tworzymy rozwiązania webowe, które pomagają zoptymalizować Twoją ofertę i usprawnić funkcjonowanie Twojej organizacji."
+        },
+        "mobileApps": {
+          "title": "Dedykowane aplikacje mobilne",
+          "text": "Nowoczesna technologia działa na wielu urządzeniach. Wspieramy firmy, tak by ze swoją ofertą stały się integralną częścią Internetu Rzeczy."
+        },
+        "teams": {
+          "title": "Team Leasing",
+          "text": "Oferujemy dedykowane zespoły rozwojowe. Dopasowujemy skład<br>i liczebność zespołu<br>w zależności od potrzeb klienta."
+        }
+      }
+    },
+    "whyUs": {
+      "header": "Dlaczego my",
+      "elements": {
+        "years": {
+          "title": "20+",
+          "text": "Lat na rynku"
+        },
+        "projects": {
+          "title": "91%",
+          "text": "Projektów oddanych na czas<br>i w budżecie"
+        },
+        "specialists": {
+          "title": "130+",
+          "text": "Programistów i specjalistów"
+        },
+        "developers": {
+          "title": "69%",
+          "text": "Programistów z długoletnim doświadczeniem"
+        },
+        "clients": {
+          "title": "14",
+          "text": "Klienci z 14 krajów"
+        }
+      }
+    },
+    "careers": {
+      "header": "Praca",
+      "subheader": "Wierzymy, że tylko utalentowani ludzie pomogą nam realizować nasze projekty. Czekamy na nowe osoby, aby dzieliły się z nami energią, entuzjazmem, doświadczeniem i pomysłami. Wpadnij do nas na rozmowę. Zobacz jak zaufanie i swoboda tworzą u nas kreatywną i wydajną przestrzeń.",
+      "elements": {
+        "iOS": "iOS Developer",
+        "android": "Android Developer",
+        "php": "PHP Developer",
+        "java": "JAVA Developer",
+        "frontend": "FrontEnd Developer"
+      }
+    }
+  },
+  "businessCases": {
+    "header": "Nasze realizacje",
+    "elements": {
+      "popPankki": {
+        "title": "Pop Pankki",
+        "text": "Aplikacja mobilna integrująca usługi bankowe i ubezpieczeniowe 26 banków w Finlandii."
+      },
+      "pzu": {
+        "title": "PZU Cash",
+        "text": "System internetowy do przydzielania pracownikom pożyczek gotówkowych. Potrafi generować pożyczki w czasie rzeczywistym."
+      },
+      "telia": {
+        "title": "Telia Company",
+        "text": "Platforma biznesowa do zarządzania kontami e-mail, udostępniania kontaktów, notatek i powiadomień wszystkim członkom firmy."
+      },
+      "saar": {
+        "title": "SAAR Landesbank",
+        "text": "Całościowy proces digital transformation dla francusko-niemieckiego banku regionalnego."
+      }
+    }
+  },
+  "buttons": {
+    "seeMoreButton": "Zobacz więcej",
+    "seeButton": "Zobacz",
+    "sendButton": "Wyślij"
+  },
+  "footer": {
+    "address": "al. Zwycięstwa 96/98, 81-451 Gdynia, Polska",
+    "copyrights": "Speednet sp. z o.o. {{currentYear}}. Wszelkie prawa zastrzeżone.",
+    "contactText": "Zostaw nam swój adres email, skontaktujemy się z Tobą w ciągu najbliższych 24h",
+    "emailPlaceholder": "twój@email.com"
   }
+
 }

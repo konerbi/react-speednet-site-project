@@ -1,5 +1,6 @@
 {
   "navbar": {
+    "home": "Home",
     "aboutUs": "About us",
     "portfolio": "Portfolio",
     "jobs": "Jobs",
@@ -7,6 +8,102 @@
     "blog": "Blog"
   },
   "home": {
-
+    "headerTextPrefix": "We create",
+    "headerTexts": {
+      "software": "Software",
+      "mobiles": "Mobile Apps",
+      "webs": "Web Apps",
+      "teams": "Dedicated Teams"
+    },
+    "headerText": "We are an agile software company specializing in web and mobile applications",
+    "meetUsButton": "Meet us",
+    "aboutUs": {
+      "header": "We build software",
+      "subheader": "This is the best time to start collaboration with experienced and reliable partner. Someone like us, who will analyze the needs, advise and guide you through the entire development process, ensuring high quality of services and respecting deadlines and budget.",
+      "elements": {
+        "webApps": {
+          "title": "Custom web applications",
+          "text": "We build web-based applications that help you automate your business or streamline your organization processes."
+        },
+        "mobileApps": {
+          "title": "Custom mobile apps",
+          "text": "Smart devices are the big thing today. We can support you in reaching out to your customers who live in the Internet of Things."
+        },
+        "teams": {
+          "title": "Team Leasing",
+          "text": "We can support you with a specially appointed development team. We adjust the size and skills of the team to match your needs."
+        }
+      }
+    },
+    "whyUs": {
+      "header": "Why Us",
+      "elements": {
+        "years": {
+          "title": "20+",
+          "text": "Years on the market"
+        },
+        "projects": {
+          "title": "91%",
+          "text": "Projects delivered on time and on budget"
+        },
+        "specialists": {
+          "title": "130+",
+          "text": "Developers and specialists"
+        },
+        "developers": {
+          "title": "69%",
+          "text": "Developers with many years of experience"
+        },
+        "clients": {
+          "title": "14",
+          "text": "Clients from 14 countries"
+        }
+      }
+    },
+    "careers": {
+      "header": "Careers",
+      "subheader": "We believe only talented people can help us push the projects forward. We're waiting for you to share your energy, enthusiasm, experience, and ideas. Visit us and have a chat. See how mutual trust and freedom are the base of our creativity and efficiency. See what we believe in and how we work. Join our Speednet team.",
+      "elements": {
+        "iOS": "iOS Developer",
+        "android": "Android Developer",
+        "php": "PHP Developer",
+        "java": "JAVA Developer",
+        "frontend": "Front-end Developer"
+      }
+    }
+  },
+  "businessCases": {
+    "header": "Business cases",
+    "elements": {
+      "popPankki": {
+        "title": "Pop Pankki",
+        "text": "A mobile application integrating banking and insurance services from 26 banks in Finland."
+      },
+      "pzu": {
+        "title": "PZU Cash",
+        "text": "Web system for allocating cash loans to employees. Able to generate loans in real time."
+      },
+      "telia": {
+        "title": "Telia Company",
+        "text": "Business platform to manage e-mail accounts, share contacts, notes and notifications with all the members of the company."
+      },
+      "saar": {
+        "title": "SAAR Landesbank",
+        "text": "A complete digital transformation process for a French-German regional bank."
+      }
+    }
+  },
+  "buttons": {
+    "seeMoreButton": "See more",
+    "seeButton": "See",
+    "sendButton": "Send"
+  },
+  "footer": {
+    "address": "al. Zwycięstwa 96/98, 81-451 Gdynia, Poland",
+    "copyrights": "Speednet sp. z o.o. {{currentYear}}. All rights reserved.",
+    "contactText": "Leave us your e-mail address, we will contact you within the next 24 hours",
+    "emailPlaceholder": "your@email.com"
   }
+
+
 }

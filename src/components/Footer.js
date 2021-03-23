@@ -1,27 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, useLocation} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const Footer = () => {
+	const [t, i18n] = useTranslation('common');
+	const [currentYear, setCurrentYear] = useState();
 	const location = useLocation();
 	const menuItems = [
 		{
-			title: 'Home',
+			title: 'navbar.home',
 			pathname: '/'
 		},
 		{
-			title: 'O Nas',
+			title: 'navbar.aboutUs',
 			pathname: '/about-us/'
 		},
 		{
-			title: 'Portfolio',
+			title: 'navbar.portfolio',
 			pathname: '/portfolio/'
 		},
 		{
-			title: 'Praca',
+			title: 'navbar.jobs',
 			pathname: '/jobs/'
 		},
 		{
-			title: 'Blog',
+			title: 'navbar.blog',
 			pathname: '/blog/'
 		}
 	];
@@ -52,6 +55,12 @@ const Footer = () => {
 			icon: 'speednet-icons-twitter'
 		}
 	];
+
+	useEffect(() => {
+		let currentDate = new Date();
+		setCurrentYear(currentDate.getFullYear());
+	}, []);
+
 	return (
 		<footer className="footer" id="footer">
 			<div className="container">
@@ -65,16 +74,16 @@ const Footer = () => {
 
 							<ul className="menu">
 								{menuItems.map(((value, index) => {
-									return <li key={'menuItem-' + index}><Link to={value.pathname} title={value.title}
+									return <li key={'menuItem-' + index}><Link to={value.pathname} title={t(value.title)}
 									                 className={location.pathname === value.pathname ? 'active' : 'alternate'}>
-										{value.title}</Link></li>
+										{t(value.title)}</Link></li>
 								}))}
 							</ul>
 						</nav>
 						<div className="contact-data">
 							<a name="contact" href="mailto:info@speednet.pl" title="E-mail">info@speednet.pl</a>
 							<a href="tel:+48586008383" title="+48 58 600 83 83">+48 58 600 83 83</a><br/><br/>
-							<p className="copyrights">al. Zwycięstwa 96/98, 81-451 Gdynia, Poland<br/>NIP: 5862208698 | REGON: 22054053
+							<p className="copyrights">{t('footer.address')}<br/>NIP: 5862208698 | REGON: 22054053
 								| KRS: 0000295602</p>
 						</div>
 						<ul className="social-box">
@@ -83,8 +92,7 @@ const Footer = () => {
 								              target="_blank"><i className={value.icon}></i></a></li>
 							}))}
 						</ul>
-						<div className="copyrights">Speednet sp. z o.o. <span id="fYear">2021</span>. Wszelkie prawa zastrzeżone.
-						</div>
+						<div className="copyrights">{t('footer.copyrights', {currentYear: currentYear})}</div>
 					</div>
 					<div className="col-md-5">
 						<div className="contact-form-background">
@@ -92,11 +100,12 @@ const Footer = () => {
 						</div>
 						<form id="contact-form" className="contact-form" data-parsley-validate="" noValidate="">
 							<a href="mailto:sales@speednet.pl"><p className="email_adress">sales@speednet.pl</p></a>
-							<p>Zostaw nam swój adres email, skontaktujemy się z Tobą w ciągu najbliższych 24h</p>
+							<p>{t('footer.contactText')}</p>
 							<div className="form-field-box">
-								<input id="footer-email" type="email" autoComplete="off" placeholder="twój@email.com"
+								<input id="footer-email" type="email" autoComplete="off" placeholder={t('footer.emailPlaceholder')}
 								       className="form-field" data-parsley-required="" data-parsley-type="email"/>
-									<button type="submit" title="Wyślij" className="btn-submit"><i className="speednet-icons-arrow-right"></i>
+									<button type="submit" title={t('buttons.sendButton')} className="btn-submit">
+										<i className="speednet-icons-arrow-right"></i>
 									</button>
 									<p id="footer-form-notifications" className="m-0" data-gtm-vis-polling-id-33155468_17="127"></p>
 							</div>
