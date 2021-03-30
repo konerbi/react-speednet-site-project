@@ -54,7 +54,7 @@
     transition: color .2s ease;
 
     &.active {
-      color: $color-font-primary;
+      color: $color-font-primary !important;
     }
     &.alternate {
       color: rgba(255,255,255,.6);
