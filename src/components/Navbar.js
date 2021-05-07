@@ -40,13 +40,13 @@ const Navbar = () => {
       scrollTo: 'footer',
       menuInverted: false
     },
-    {
-      title: 'navbar.blog',
-      path: '/blog',
-      isScrollLink: false,
-      scrollTo: null,
-      menuInverted: false
-    }
+    // {
+    //   title: 'navbar.blog',
+    //   path: '/blog',
+    //   isScrollLink: false,
+    //   scrollTo: null,
+    //   menuInverted: false
+    // }
   ];
 
   const handleScroll = () => {

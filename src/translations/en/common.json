@@ -72,6 +72,12 @@
       }
     }
   },
+  "aboutUs": {
+    "header": "About us",
+    "subHeader": "Custom software development and team leasing",
+    "descriptionTitle": "Have an idea for an app? Need a system to increase your company’s efficiency? Your business needs to grow through new technology solutions?",
+    "description": "This is the moment when you need a reliable and experienced technology partner who will not only analyze your idea but will also advice and lead you through the whole development process providing high quality services in the set time and budget."
+  },
   "businessCases": {
     "header": "Business cases",
     "elements": {

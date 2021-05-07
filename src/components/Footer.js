@@ -23,10 +23,10 @@ const Footer = () => {
       title: "navbar.jobs",
       pathname: "/jobs/",
     },
-    {
-      title: "navbar.blog",
-      pathname: "/blog/",
-    },
+    // {
+    //   title: "navbar.blog",
+    //   pathname: "/blog/",
+    // },
   ];
   const socialItems = [
     {

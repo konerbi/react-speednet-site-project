@@ -65,6 +65,67 @@ body {
   width: 100%;
 }
 
+.header-intro, .header-intro-optional, .header-intro-secondary {
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.header-intro-secondary {
+  background-color: $color-font-secondary;
+  min-height: 480px;
+  background-position: top center;
+  background-attachment: fixed;
+
+  background-attachment: unset;
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    margin-bottom: 24px;
+    font-family: Volte-Semibold,sans-serif;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+  }
+  p {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 940px;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: opacity 1s ease;
+}
+
 section {
   position: relative;
   padding: 50px 0;
@@ -111,6 +172,16 @@ button, input, select, textarea {
     text-align: center;
     word-break: break-word;
     word-wrap: break-word;
+  }
+}
+
+.section-intro {
+  p {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -1px;
+    color: $color-font-secondary;
+    text-align: left;
   }
 }
 
@@ -186,7 +257,45 @@ button, input, select, textarea {
 
 }
 
+@media screen and (min-width: 768px) {
+  .col-sm-offset-1 {
+    margin-left: 8.3333333333%;
+  }
+  .col-sm-10 {
+    width: 83.3333333333%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .col-md-offset-1 {
+    margin-left: 8.3333333333%;
+  }
+  .col-md-5 {
+    width: 41.6666666667%;
+  }
+
+  .section-intro {
+    h3 {
+      font-size: 24px;
+      line-height: 35px;
+    }
+    p {
+      font-size: 20px;
+      line-height: 35px;
+    }
+  }
+}
+
 @media screen and (min-width: 1280px) {
+  .header-intro-secondary {
+    h1 {
+      font-size: 60px;
+    }
+    p {
+      font-size: 30px;
+    }
+  }
+
   section {
     padding-top: 100px;
     padding-bottom: 100px;

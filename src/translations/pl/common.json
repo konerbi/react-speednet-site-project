@@ -72,6 +72,12 @@
       }
     }
   },
+  "aboutUs": {
+    "header": "O nas",
+    "subHeader": "Dedykowane oprogramowanie oraz team leasing",
+    "descriptionTitle": "Potrzebujesz aplikacji? Wydajność Twojej organizacji nie jest dostatecznie wspierana przez technologie? A może czujesz, że produkty cyfrowe znacznie usprawnią rozwój Twojego biznesu?",
+    "description": "To najlepszy moment, by skorzystać z pomocy doświadczonego i niezawodnego partnera. Kogoś takiego jak my, kto przeanalizuje potrzeby, doradzi i przeprowadzi przez cały proces rozwoju zapewniając wysoką jakość usług oraz respektując terminy i budżet."
+  },
   "businessCases": {
     "header": "Nasze realizacje",
     "elements": {
