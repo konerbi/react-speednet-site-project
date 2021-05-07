@@ -16,21 +16,21 @@ const Navbar = () => {
       title: 'navbar.aboutUs',
       path: '/about-us',
       isScrollLink: false,
-      scrollTo: null,
+      scrollTo: 'navbar',
       menuInverted: false
     },
     {
       title: 'navbar.portfolio',
       path: '/portfolio',
       isScrollLink: false,
-      scrollTo: null,
+      scrollTo: 'navbar',
       menuInverted: true
     },
     {
       title: 'navbar.jobs',
       path: '/jobs',
       isScrollLink: false,
-      scrollTo: null,
+      scrollTo: 'navbar',
       menuInverted: false
     },
     {
@@ -44,7 +44,7 @@ const Navbar = () => {
     //   title: 'navbar.blog',
     //   path: '/blog',
     //   isScrollLink: false,
-    //   scrollTo: null,
+    //   scrollTo: 'navbar',
     //   menuInverted: false
     // }
   ];
@@ -70,9 +70,9 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <div className={`navigation ${isSticky ? "sticky" : ""} ${isInverted ? "inverted" : ""}`}>
+    <div className={`navigation ${isSticky ? "sticky" : ""} ${isInverted ? "inverted" : ""}`} id="navbar">
       <div className="navbar">
-        <Link to="/" className="logo" title="Speednet Sp z o.o.">
+        <Link to="/" className="logo" title="Speednet Sp z o.o." onClick={() => ScrollToElement('navbar')}>
           <svg
             viewBox="0 0 1067 115"
             version="1.1"
@@ -113,6 +113,7 @@ const Navbar = () => {
                     activeClassName="navbar-element-active"
                     title={t(value.title)}
                     className="link"
+                    onClick={() => ScrollToElement(value.scrollTo)}
                   >
                     {t(value.title)}
                   </NavLink>

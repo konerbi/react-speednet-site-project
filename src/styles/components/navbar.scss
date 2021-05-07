@@ -31,8 +31,13 @@
     .logo path {
       fill: $color-font-secondary;
     }
-    .navbar .main-menu .menu .item .link {
-      color: $color-font-secondary;
+    .navbar .main-menu .menu .item {
+      .link {
+        color: $color-font-secondary;
+      }
+      .link-special-2 {
+        border-color: $color-font-secondary;
+      }
     }
   }
 }
