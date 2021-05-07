@@ -26,6 +26,15 @@
     fill: $color-font-primary;
     transition: fill .2s ease;
   }
+
+  &.inverted {
+    .logo path {
+      fill: $color-font-secondary;
+    }
+    .navbar .main-menu .menu .item .link {
+      color: $color-font-secondary;
+    }
+  }
 }
 
 .navbar {

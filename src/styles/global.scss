@@ -114,6 +114,10 @@ button, input, select, textarea {
   }
 }
 
+.no-padd-top {
+  padding-top: 0;
+}
+
 .option {
   background: $color-background-tertiary;
 }

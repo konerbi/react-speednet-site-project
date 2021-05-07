@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import LanguageToggle from "./LanguageToggle";
 import ScrollToElement from "./ScrollToElement";
 import {useTranslation} from "react-i18next";
 
 const Navbar = () => {
+  const location = useLocation();
   const [t, i18n] = useTranslation('common');
   const [isSticky, setIsSticky] = useState(false);
+  const [isInverted, setIsInverted] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const menuItems = [
@@ -14,31 +16,36 @@ const Navbar = () => {
       title: 'navbar.aboutUs',
       path: '/about-us',
       isScrollLink: false,
-      scrollTo: null
+      scrollTo: null,
+      menuInverted: false
     },
     {
       title: 'navbar.portfolio',
       path: '/portfolio',
       isScrollLink: false,
-      scrollTo: null
+      scrollTo: null,
+      menuInverted: true
     },
     {
       title: 'navbar.jobs',
       path: '/jobs',
       isScrollLink: false,
-      scrollTo: null
+      scrollTo: null,
+      menuInverted: false
     },
     {
       title: 'navbar.contact',
       path: null,
       isScrollLink: true,
-      scrollTo: 'footer'
+      scrollTo: 'footer',
+      menuInverted: false
     },
     {
       title: 'navbar.blog',
       path: '/blog',
       isScrollLink: false,
-      scrollTo: null
+      scrollTo: null,
+      menuInverted: false
     }
   ];
 
@@ -48,16 +55,22 @@ const Navbar = () => {
     setScrollPosition(position);
   };
 
+  function checkIfMenuIsInverted(pathname) {
+    return menuItems.filter(item => item.path === pathname)[0]?.menuInverted;
+  }
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
+
+    setIsInverted(checkIfMenuIsInverted(location.pathname));
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
 
   return (
-    <div className={`navigation ${isSticky ? "sticky" : ""}`}>
+    <div className={`navigation ${isSticky ? "sticky" : ""} ${isInverted ? "inverted" : ""}`}>
       <div className="navbar">
         <Link to="/" className="logo" title="Speednet Sp z o.o.">
           <svg
