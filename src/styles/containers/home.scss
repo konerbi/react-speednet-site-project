@@ -444,3 +444,26 @@
     }
   }
 }
+
+@media (max-width: 1023px) {
+  .tile-job-row {
+    flex-direction: unset !important;
+    flex-wrap: wrap;
+  }
+  .tile-job {
+    margin-bottom: 35px;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .tile-job-row .tile-job {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 599px) {
+  .tile-job-row .tile-job {
+    align-items: unset !important;
+  }
+}

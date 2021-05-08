@@ -179,3 +179,31 @@
     }
   }
 }
+
+@media (max-width: 1023px) {
+  .portfolio-header {
+    min-height: 300px;
+    padding-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .portfolio-item {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 300px;
+  }
+  .portfolio {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    figure {
+      margin-bottom: 20px;
+    }
+  }
+  .portfolio-header {
+    padding-bottom: 0;
+    min-height: 200px;
+  }
+}
