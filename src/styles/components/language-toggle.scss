@@ -71,3 +71,46 @@
     }
   }
 }
+
+@media screen and (max-width: 1279px) {
+  .link-language {
+    display: none;
+  }
+  .languages-list {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    li {
+      position: relative;
+      &:not(:first-child):before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        width: 2px;
+        height: 2px;
+        background-color: $color-font-inactive;
+        border-radius: 50%;
+      }
+    }
+    a {
+      font-size: 16px;
+      color: $color-font-inactive;
+      i {
+        display: none;
+      }
+      &.active {
+        color: $color-font-primary;
+      }
+    }
+  }
+}

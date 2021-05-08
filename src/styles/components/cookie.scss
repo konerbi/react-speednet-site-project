@@ -58,8 +58,51 @@
     right: 25px;
     width: 26px;
     height: 26px;
-    font-size: 20px;
     cursor: pointer;
     transition: color .2s ease;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: $color-button-secondary;
+    text-shadow: 0 1px 0 $color-background-primary;
+    opacity: 1;
   }
 }
+
+@media (max-width: 768px) {
+  .cookies {
+    width: 175px;
+    border-radius: 50%;
+    &:before {
+      top: -15px;
+      left: 50%;
+      -webkit-transform: translateX(-34px);
+      transform: translateX(-34px);
+    }
+  }
+  .cookies-inner {
+    padding: 60px 15px 30px;
+    .close {
+      top: -40px;
+      right: 0;
+      width: 36px;
+      height: 36px;
+      background-color: $color-background-primary;
+      background-position: center -147px;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .cookies {
+    transform: scale(0.8);
+    bottom: -5px;
+
+    &.show {
+      right: -5px;
+    }
+  }
+}
+

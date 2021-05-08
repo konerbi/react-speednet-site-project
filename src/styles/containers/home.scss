@@ -433,3 +433,14 @@
     min-width: 300px;
   }
 }
+
+@media screen and (max-width: 1279px) {
+  .header-intro {
+    h1 {
+      font-size: 30px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+}
