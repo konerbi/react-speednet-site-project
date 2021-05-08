@@ -24,7 +24,7 @@
     font-size: 21px;
     line-height: 26px;
     letter-spacing: .8px;
-    color: #353535;
+    color: $color-font-secondary;
     text-decoration: none;
     text-transform: uppercase;
     transition: color .2s ease,font-size .2s ease,background-color .2s ease;
@@ -104,12 +104,12 @@
     }
     a {
       font-size: 16px;
-      color: $color-font-inactive;
+      color: $color-font-inactive !important;
       i {
         display: none;
       }
       &.active {
-        color: $color-font-primary;
+        color: $color-font-primary !important;
       }
     }
   }
