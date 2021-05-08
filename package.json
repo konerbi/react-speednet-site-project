@@ -23,7 +23,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "webpack serve --mode development --config webpack.config.js",
+    "start": "webpack serve --mode development --hot --history-api-fallback --config webpack.config.js",
     "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

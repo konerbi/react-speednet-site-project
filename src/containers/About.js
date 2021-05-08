@@ -1,5 +1,4 @@
 import React from 'react';
-import PortfolioComponent from "../components/PortfolioComponent";
 import {useTranslation} from "react-i18next";
 
 const About = () => {

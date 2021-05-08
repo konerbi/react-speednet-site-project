@@ -105,7 +105,6 @@ const Home = () => {
 
 	const handleScroll = () => {
 		const position = window.pageYOffset;
-		console.log('position=' + position);
 		if (position > 500) {
 			setIsAboutUsOutsideViewport(false);
 		}
