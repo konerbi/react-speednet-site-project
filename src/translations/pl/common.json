@@ -120,6 +120,10 @@
   "cookies": {
     "header": "W celu poprawy jakości naszych usług używamy ciasteczek.",
     "description": "Możesz je zablokować poprzez zmianę ustawień przeglądarki."
+  },
+  "notFound": {
+    "header": "404",
+    "subHeader": "Nie znaleziono strony"
   }
 
 }

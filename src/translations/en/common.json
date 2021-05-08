@@ -120,6 +120,10 @@
   "cookies": {
     "header": "We use cookies to improve the quality of our services.",
     "description": "You can block them by changing your browser settings."
+  },
+  "notFound": {
+    "header": "404",
+    "subHeader": "Page not found"
   }
 
 }
