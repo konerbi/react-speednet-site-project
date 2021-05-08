@@ -78,6 +78,13 @@
     "descriptionTitle": "Potrzebujesz aplikacji? Wydajność Twojej organizacji nie jest dostatecznie wspierana przez technologie? A może czujesz, że produkty cyfrowe znacznie usprawnią rozwój Twojego biznesu?",
     "description": "To najlepszy moment, by skorzystać z pomocy doświadczonego i niezawodnego partnera. Kogoś takiego jak my, kto przeanalizuje potrzeby, doradzi i przeprowadzi przez cały proces rozwoju zapewniając wysoką jakość usług oraz respektując terminy i budżet."
   },
+  "jobs": {
+    "header": "Dołącz do nas",
+    "subHeader": "Nieustannie się rozwijamy",
+    "description_1": "Wierzymy, że tylko utalentowani ludzie pomogą nam realizować nasze projekty. Czekamy na nowe osoby, aby dzieliły się z nami energią, entuzjazmem, doświadczeniem i pomysłami. Wpadnij do nas na rozmowę. Zobacz jak zaufanie i swoboda tworzą u nas kreatywną i wydajną przestrzeń.",
+    "description_2": "Zobacz w co wierzymy i jak pracujemy, a potem dołącz do zespołu Speednet.",
+    "description_3": "Swoje CV możesz przesłać na adres "
+  },
   "businessCases": {
     "header": "Nasze realizacje",
     "elements": {
