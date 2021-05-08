@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {Link, NavLink, useLocation} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import ScrollToElement from "./ScrollToElement";
 
 const Footer = () => {
   const [t, i18n] = useTranslation("common");
@@ -13,19 +14,19 @@ const Footer = () => {
     },
     {
       title: "navbar.aboutUs",
-      pathname: "/about-us/",
+      pathname: "/about-us",
     },
     {
       title: "navbar.portfolio",
-      pathname: "/portfolio/",
+      pathname: "/portfolio",
     },
     {
       title: "navbar.jobs",
-      pathname: "/jobs/",
+      pathname: "/jobs",
     },
     // {
     //   title: "navbar.blog",
-    //   pathname: "/blog/",
+    //   pathname: "/blog",
     // },
   ];
   const socialItems = [
@@ -75,9 +76,6 @@ const Footer = () => {
             <nav className="footer-menu">
               <ul className="menu">
                 {menuItems.map((value, index) => {
-                  // return <li key={'menuItem-' + index}><Link to={value.pathname} title={t(value.title)}
-                  //                  className={location.pathname === value.pathname ? 'active' : 'alternate'}>
-                  // 	{t(value.title)}</Link></li>
                   return (
                     <li key={"menuItem-" + index}>
                       <NavLink exact
@@ -85,6 +83,7 @@ const Footer = () => {
                         title={t(value.title)}
                         activeClassName="active"
                         className="alternate"
+                        onClick={() => ScrollToElement('navbar')}
                       >
                         {t(value.title)}
                       </NavLink>
