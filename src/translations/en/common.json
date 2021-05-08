@@ -116,7 +116,10 @@
     "copyrights": "Speednet sp. z o.o. {{currentYear}}. All rights reserved.",
     "contactText": "Leave us your e-mail address, we will contact you within the next 24 hours",
     "emailPlaceholder": "your@email.com"
+  },
+  "cookies": {
+    "header": "We use cookies to improve the quality of our services.",
+    "description": "You can block them by changing your browser settings."
   }
-
 
 }
