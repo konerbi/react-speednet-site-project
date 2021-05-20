@@ -21,8 +21,7 @@ const LanguageToggle = () => {
 	return (
 		<div className="language">
 			<a title="" className="link link-language"
-			   onMouseEnter={handleToggle}
-			   onMouseLeave={() => handleToggle(false)}>
+			   onMouseEnter={handleToggle}>
 				{currentLanguage} <i className="speednet-icons-caret-down"></i>
 			</a>
 			<ul className={`languages-list ${showList ? 'show' : ''}`} onMouseLeave={() => handleToggle(false)}>
